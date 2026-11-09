@@ -44,10 +44,21 @@ npm run build      # výstup do dist/
 
 ## Kontejner
 
+Docker:
+
+```sh
+docker build -t spolek-web -f Containerfile .
+docker run --rm -p 8080:80 spolek-web
+```
+
+Podman:
+
 ```sh
 podman build -t spolek-web -f Containerfile .
 podman run --rm -p 8080:80 spolek-web
 ```
+
+Web pak běží na http://localhost:8080.
 
 Výsledkem je nginx:alpine se statikou na portu 80. Hlavní stránky starého webu (`/zakladni-dokumenty/`, `/ples/` atd.)
 se přesměrují přes 301 podle `src/pages/nginx-redirects.conf.ts`.

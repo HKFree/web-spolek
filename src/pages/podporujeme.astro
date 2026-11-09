@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import podporujeme from '../data/podporujeme.json';
+
+const total = podporujeme.reduce((n, g) => n + g.items.length, 0);
+const schools = podporujeme.find((g) => g.group.startsWith('Školy'))?.items.length ?? 0;
+---
+
+<Layout title="Podporujeme" description={`Spolek hkfree.org podporuje ${total} škol, knihoven, sportovních a neziskových organizací v Hradci Králové a okolí.`}>
+  <section class="dim">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">podporujeme</div>
+        <h1>Komu pomáháme</h1>
+        <p>
+          Školám, knihovnám, sportovním klubům, kulturním a neziskovým organizacím v Hradci Králové a okolí poskytujeme konektivitu a technickou pomoc.
+          Školy připojujeme zdarma v rámci programu <strong>HKDOŠ</strong> (hkfree.org do škol).
+        </p>
+      </div>
+      <div class="org-stats">
+        <div class="fact"><b>{total}</b><span>organizací</span></div>
+        <div class="fact"><b>{schools}</b><span>škol a školek</span></div>
+        <div class="fact"><b>{podporujeme.length}</b><span>oblastí</span></div>
+      </div>
+      <div class="org-groups">
+        {
+          podporujeme.map((g) => (
+            <div class="org-group">
+              <h2>
+                {g.group} <span>{g.items.length}</span>
+              </h2>
+              <ul>
+                {g.items.map((o) => (
+                  <li>
+                    <a href={o.url} rel="noopener">
+                      <span>
+                        {o.name}
+                        {'note' in o && o.note && <small>{o.note}</small>}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+      <p class="join-note">Chceš připojit i svou školu nebo organizaci? <a href="mailto:vv@hkfree.org">Ozvi se na vv@hkfree.org.</a></p>
+    </div>
+  </section>
+</Layout>

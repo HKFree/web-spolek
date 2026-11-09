@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SPOLEK, DRUZSTVO, DOKUMENTY } from '../consts';
+---
+
+<Layout title="Kontakt" description="Kontakty na spolek hkfree.org z.s.: výkonný výbor, sídlo, IČ, datová schránka a bankovní účet.">
+  <div class="wrap article-wrap">
+    <nav class="breadcrumb" aria-label="Drobečková navigace"><a href="/">Úvod</a> / Kontakt</nav>
+    <article>
+      <header class="article-header">
+        <div class="kicker">kontakt</div>
+        <h1>Napiš nám</h1>
+        <p class="article-lead">
+          Spolek řídí výkonný výbor. S čímkoliv, co se týká spolku, akcí nebo členství, piš na{' '}
+          <a href={`mailto:${SPOLEK.email}`}><strong>{SPOLEK.email}</strong></a>.
+        </p>
+      </header>
+      <div class="prose">
+        <blockquote>
+          <p>
+            <strong>Internet, televize a technická podpora</strong> patří od roku 2025 pod{' '}
+            <a href={`${DRUZSTVO.url}/kontakt/`}>hkfree.org internetové družstvo</a>, infolinka{' '}
+            <a href={`tel:${DRUZSTVO.tel}`}>{DRUZSTVO.phone}</a>.
+          </p>
+        </blockquote>
+
+        <h2>Výkonný výbor</h2>
+        <p><a href={`mailto:${SPOLEK.email}`}>{SPOLEK.email}</a></p>
+
+
+        <h2>Sídlo a fakturační údaje</h2>
+        <p><strong>{SPOLEK.name}</strong><br />{SPOLEK.adresa}</p>
+        <p>Je to jen korespondenční adresa, kancelář nemáme. Doporučené dopisy posílej prosím jen v nejnutnějších případech a po domluvě.</p>
+        <ul>
+          <li>IČ: {SPOLEK.ico}</li>
+          <li>Datová schránka: <strong>{SPOLEK.datovka}</strong></li>
+          <li>Bankovní účet: <strong>{SPOLEK.ucet}</strong></li>
+          <li>Faktury: <a href={`mailto:${SPOLEK.fakturace}`}>{SPOLEK.fakturace}</a></li>
+        </ul>
+      </div>
+
+      <section class="docs" id="dokumenty">
+        <h2>Dokumenty</h2>
+        <ul class="doclist">
+          {
+            DOKUMENTY.map((d) => (
+              <li>
+                <a href={d.href} target="_blank" rel="noopener noreferrer">
+                  <span class="tag">PDF</span>
+                  {d.label}
+                  <span class="arrow" aria-hidden="true">→</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+      <div class="article-footer">
+        <a class="btn btn-dark" href="/">← Zpět na úvod</a>
+      </div>
+    </article>
+  </div>
+</Layout>

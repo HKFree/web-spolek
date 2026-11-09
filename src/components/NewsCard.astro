@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import FacebookIcon from './FacebookIcon.astro';
+import { type Aktualita, urlOf, formatDate, isoDate, excerptOf, isFacebookOnly } from '../lib/aktuality';
+
+interface Props {
+  post: Aktualita;
+  showImage?: boolean;
+}
+const { post, showImage = true } = Astro.props;
+const { title, date, image, author, facebook } = post.data;
+const external = isFacebookOnly(post);
+---
+
+<a href={urlOf(post)} class:list={['rv', { 'is-fb': facebook }]} {...external ? { target: '_blank', rel: 'noopener' } : {}}>
+  {
+    showImage && image && (
+      <span class="news-img">
+        <Image src={image} alt="" width={640} height={360} fit="cover" loading="lazy" />
+      </span>
+    )
+  }
+  <span class="meta">
+    <time datetime={isoDate(date)}>{formatDate(date)}</time>{author && <> · {author}</>}
+  </span>
+  <h3>{title}</h3>
+  <p>{excerptOf(post, 140)}</p>
+  {
+    external ? (
+      <span class="more fb-more">
+        <FacebookIcon /> Číst na Facebooku ↗
+      </span>
+    ) : (
+      <span class="more">
+        Číst dál →{facebook && <FacebookIcon />}
+      </span>
+    )
+  }
+</a>

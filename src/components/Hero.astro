@@ -1,0 +1,31 @@
+---
+import { Image } from 'astro:assets';
+import { HERO_FOTKY } from '../data/akce';
+---
+
+<div class="hero-paper">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="kicker">komunitní spolek · Hradec Králové · od 2004</div>
+      <h1>Přes dvacet let online, ale&nbsp;i <span class="accent">offline</span>.</h1>
+      <p class="lead">
+        Zapsaný spolek z Hradce Králové. Pořádáme ples, dětský tábor, bruslení a LAN party, pomáháme školám a neziskovkám a rádi se
+        potkáváme nad technikou.
+      </p>
+      <div class="ctas">
+        <a class="btn btn-red" href="/#akce">Naše akce</a>
+        <a class="btn btn-dark" href="/#pridej-se">Přidej se</a>
+      </div>
+    </div>
+    <div class="photo-wall">
+      {
+        HERO_FOTKY.map((f, i) => (
+          <a href={f.href} class={`ph ph-${i}`} aria-label={f.label}>
+            <Image src={f.src} alt="" width={460} height={330} fit="cover" loading={i < 3 ? 'eager' : 'lazy'} />
+            <span>{f.label}</span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</div>

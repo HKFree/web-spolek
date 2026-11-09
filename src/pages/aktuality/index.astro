@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import NewsCard from '../../components/NewsCard.astro';
+import { getAktuality, urlOf, isoDate } from '../../lib/aktuality';
+
+const posts = await getAktuality();
+const latest = posts.slice(0, 6);
+const rest = posts.slice(6);
+
+const byYear = new Map<number, typeof posts>();
+for (const p of rest) {
+  const y = p.data.date.getFullYear();
+  byYear.set(y, [...(byYear.get(y) ?? []), p]);
+}
+const short = new Intl.DateTimeFormat('cs-CZ', { day: 'numeric', month: 'numeric' });
+---
+
+<Layout title="Aktuality" description="Zprávy ze spolku hkfree.org: akce, ples, tábor, bruslení a novinky z komunity.">
+  <section class="dim">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">aktuality</div>
+        <h1>Co se u nás děje</h1>
+        <p>Pozvánky na akce, zprávy z komunity a novinky ze spolku. Odebírat je můžeš i přes <a href="/rss.xml">RSS</a>.</p>
+      </div>
+      <div class="news">
+        {latest.map((p) => <NewsCard post={p} />)}
+      </div>
+
+      {
+        rest.length > 0 && (
+          <div class="archive">
+            <h2>Archiv</h2>
+            {[...byYear].map(([year, list]) => (
+              <div class="archive-year">
+                <b>{year}</b>
+                <ul>
+                  {list.map((p) => (
+                    <li>
+                      <time datetime={isoDate(p.data.date)}>{short.format(p.data.date)}</time>
+                      <a href={urlOf(p)}>{p.data.title}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </section>
+</Layout>

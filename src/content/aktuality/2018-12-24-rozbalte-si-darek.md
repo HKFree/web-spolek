@@ -1,0 +1,11 @@
+---
+title: "Rozbalte si dárek!"
+date: 2018-12-24
+author: "Jakub"
+image: "./2018-12-24-rozbalte-si-darek/bandwidth-close-up-computer-1148820.jpg"
+legacyUrl: "/rozbalte-si-darek-3232/"
+---
+
+![bandwidth-close-up-computer-1148820](./2018-12-24-rozbalte-si-darek/bandwidth-close-up-computer-1148820.jpg)
+
+Pro všechny členy navyšujeme úložné místo na [nas.hkfree.org](https://l.facebook.com/l.php?u=http%3A%2F%2Fnas.hkfree.org%2F%3Ffbclid%3DIwAR30KIOHz1JOFbJzThpCuD4b_o7Fob_HGhvPQz1hn9nHOJIrIZkIqauixWY&h=AT1294TiyaB1n_jJ1SyItKoRFjip-a0AEIMGDQPUrV6rlPzPykqoN8jGGvhQtB7dbAHvFWRyy3_Oojohy9qXMMt1UeER7z0KEljwRFPReiISA7O6zkDdYonR2QltS2s1Aimh7uuBQ8_FbjJr5FjSWCbTYOjrOkNg01zSiwm30AcaA4LIEXUXn3qrUvWsx3O_xMrUjslyBG7HbAcgUZmR_HR_B-cbQbuaCeC8dJNXBRpkwPasyUJ5vMAKkCawjOYalvce7ILwtdslJohUm3UpBGPTDtEdAaPn_hZVu0h7rUBP903vdh2_lNhHG0BHW2fsBWhDUUwMYsH9wmK70szIjDejBOPHeti8zcXAt0DU17GRyyvrVQMPVk8JOBvoI3vMcitdOcOxO91HgWpJv2gG-f6ZBHfw6qs02HgoOIsRLhPYpAeBi2b9JbKk2CIGcEZcmWvaDiP0M57_gaPaK91qaOzRBxzEvhFRe13busnDLVkzphrGYrtByRHbZsX1pUciHwskw2ALQG64wWJWiHDJ7mCjBZSl9Sqe6PLot9UvG_elqzOYeHApZhXRFKwolFwRj5zHlDeuKFA1s1IGuuulTcYf476tLu7zZiEyBtlWQa_cxWXLZBEgePy7) na dvojnásobek. Krásné svátky všem!

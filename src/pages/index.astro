@@ -1,0 +1,193 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import DruzstvoCard from '../components/DruzstvoCard.astro';
+import NewsCard from '../components/NewsCard.astro';
+import { AKCE } from '../data/akce';
+import podporujeme from '../data/podporujeme.json';
+import { getAktuality, urlOf, formatDate } from '../lib/aktuality';
+import { SPOLEK, DOKUMENTY, DRUZSTVO } from '../consts';
+
+const posts = await getAktuality();
+const akce = AKCE.map((a) => ({ ...a, last: posts.find((p) => a.match.test(p.data.title)) }));
+
+const orgCount = podporujeme.reduce((n, g) => n + g.items.length, 0);
+const count = (prefix: string) => podporujeme.find((g) => g.group.startsWith(prefix))?.items.length ?? 0;
+const vybrane = [
+  'Univerzita Hradec Králové',
+  'Fakultni nemocnice Hradec Kralové',
+  'Knihovna města Hradce Králové',
+  'Hvězdárna a planetárium Hradec Králové',
+  'Filharmonie Hradec Králové',
+  'Kino Bio Centrál',
+  'DDM Hradec Králové',
+  'Tyfloservis',
+  'Středisko Karla Šimka',
+  'ZŠ Kukleny',
+  'Muzeum Východních Čech HK',
+  'Bajkazyl',
+];
+---
+
+<Layout>
+  <Hero />
+
+  <DruzstvoCard />
+
+  <section id="akce">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div class="kicker">akce</div>
+        <h2>Síť není jen o anténách</h2>
+        <p>Pořádáme akce pro členy, rodiny, kamarády i úplně cizí lidi.</p>
+      </div>
+      <div class="akce">
+        {
+          akce.map((a) => (
+            <article class="akce-card rv" id={`akce-${a.id}`}>
+              <div class="akce-photo">
+                <Image src={a.photo} alt="" width={560} height={360} fit="cover" loading="lazy" />
+                {a.since && <span class="since">{a.since}</span>}
+              </div>
+              <div class="akce-body">
+                <h3>{a.title}</h3>
+                <p>{a.text}</p>
+                {a.last && (
+                  <a class="last" href={urlOf(a.last)}>
+                    <small>naposledy {formatDate(a.last.data.date)}</small>
+                    {a.last.data.title} →
+                  </a>
+                )}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="aktuality" class="tinted">
+    <div class="wrap">
+      <div class="sec-head sec-head-row rv">
+        <div>
+          <div class="kicker">aktuality</div>
+          <h2>Co se u nás děje</h2>
+        </div>
+        <a class="btn btn-dark" href="/aktuality/">Všechny aktuality →</a>
+      </div>
+      <div class="news">
+        {posts.slice(0, 3).map((p) => <NewsCard post={p} />)}
+      </div>
+    </div>
+  </section>
+
+  <section id="o-spolku">
+    <div class="wrap">
+      <div class="story">
+        <div class="rv">
+          <div class="kicker">o spolku</div>
+          <h2>Začalo to anténou na střeše</h2>
+          <p class="story-text">
+            V roce 2004 pár nadšenců propojilo své počítače, aby se dostali na internet a mohli spolu gamesit. Z party se stala
+            komunitní síť pro tisíce domácností. Internet dnes provozuje družstvo a spolku zůstalo to nejlepší: lidi, akce a bastlení.
+          </p>
+        </div>
+        <ol class="osa rv">
+          <li><b>2004</b>Vzniká občanské sdružení hkfree.org</li>
+          <li><b>2012</b>Vlastní webkamera nad Hradcem</li>
+          <li><b>2014</b>První ples, sdružení se mění na spolek hkfree.org z.s.</li>
+          <li><b>2017</b>První letní tábor v Jedlové</li>
+          <li><b>2019</b>První LAN párty</li>
+          <li><b>2024</b>Slavíme 20 let</li>
+          <li><b>2025</b>Internet přebírá družstvo, spolek jede dál</li>
+        </ol>
+      </div>
+
+
+      <div class="kdo-je-kdo rv">
+        <div class="kjk-col">
+          <div class="kicker">spolek · hkfree.org z.s.</div>
+          <h3>Tady jsi správně, když…</h3>
+          <ul>
+            <li>chceš přijít na ples, tábor, bruslení nebo LAN party</li>
+            <li>tě baví technika a chceš se zapojit do projektů</li>
+            <li>hledáš podporu pro školu nebo neziskovku</li>
+          </ul>
+        </div>
+        <a class="kjk-col kjk-druzstvo" href={DRUZSTVO.url}>
+          <div class="kicker">družstvo · hkfree.org i.d.</div>
+          <h3>Na družstvo se obrať, když…</h3>
+          <ul>
+            <li>chceš internet nebo televizi</li>
+            <li>ti něco nefunguje a potřebuješ technickou podporu</li>
+            <li>řešíš smlouvu, platbu nebo fakturu za připojení</li>
+          </ul>
+          <span class="kjk-link">druzstvo.hkfree.org →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="podpora-band">
+    <div class="wrap">
+      <div class="pb-head rv">
+        <div>
+          <div class="kicker">podporujeme</div>
+          <h2>Pomáháme {orgCount} organizacím</h2>
+        </div>
+        <div class="pb-stats">
+          <div><b>{count('Školy')}</b><span>škol a školek</span></div>
+          <div><b>{count('Knihovny')}</b><span>knihoven</span></div>
+          <div><b>{count('Sport')}</b><span>sportovních klubů</span></div>
+        </div>
+      </div>
+      <ul class="chips rv">
+        {vybrane.map((n) => <li>{n}</li>)}
+        <li class="chip-more"><a href="/podporujeme/">a dalších {orgCount - vybrane.length} →</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="pridej-se">
+    <div class="wrap">
+      <div class="two-col">
+        <div class="rv">
+          <div class="kicker">přidej se</div>
+          <h2>Přidej ruku nebo hlavu k dílu</h2>
+          <p class="story-text">
+            Spolek stojí na lidech, kteří dělají věci ve volném čase a baví je to. Členem může být kdokoliv. Stačí napsat výkonnému výboru, co tě
+            baví a s čím bys rád pomohl. O přijetí rozhoduje výbor a souhlas se <a href={DOKUMENTY[0].href}>stanovami</a> potvrdíš prvním členským
+            příspěvkem.
+          </p>
+          <div class="ctas">
+            <a class="btn btn-red" href={`mailto:${SPOLEK.email}`}>Napsat na {SPOLEK.email}</a>
+          </div>
+        </div>
+        <div class="contact-card rv" id="kontakt">
+          <div class="kicker">kontakt · výkonný výbor</div>
+          <a class="big-mail" href={`mailto:${SPOLEK.email}`}>{SPOLEK.email}</a>
+          <div class="contact-rows">
+            <div class="pay-row"><span>Sídlo</span><b>{SPOLEK.adresa}</b></div>
+            <div class="pay-row"><span>IČ</span><b>{SPOLEK.ico}</b></div>
+            <div class="pay-row"><span>Datová schránka</span><b>{SPOLEK.datovka}</b></div>
+          </div>
+          <ul class="doclist">
+            {
+              DOKUMENTY.map((d) => (
+                <li>
+                  <a href={d.href} target="_blank" rel="noopener noreferrer">
+                    <span class="tag">PDF</span>
+                    {d.label}
+                    <span class="arrow" aria-hidden="true">→</span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+          <a class="btn btn-dark contact-details" href="/kontakt/">Další kontakty →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

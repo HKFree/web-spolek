@@ -1,0 +1,84 @@
+---
+import { render } from 'astro:content';
+import { Image, getImage } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import FacebookIcon from '../../components/FacebookIcon.astro';
+import { getAktuality, slugOf, urlOf, formatDate, isoDate, excerptOf, isFacebookOnly, type Aktualita } from '../../lib/aktuality';
+
+export async function getStaticPaths() {
+  const posts = (await getAktuality()).filter((p) => !isFacebookOnly(p));
+  return posts.map((post, i) => ({
+    params: { slug: slugOf(post) },
+    props: { post, newer: posts[i - 1], older: posts[i + 1] },
+  }));
+}
+
+interface Props {
+  post: Aktualita;
+  newer?: Aktualita;
+  older?: Aktualita;
+}
+const { post, newer, older } = Astro.props;
+const { Content } = await render(post);
+const { title, date, author, image, facebook } = post.data;
+// titulní obrázek nahoře jen u článků bez obrázků v textu (importované ho mají v textu)
+const coverInBody = /!\[[^\]]*\]\(/.test(post.body ?? '');
+const og = image ? (await getImage({ src: image, width: 1200 })).src : undefined;
+---
+
+<Layout title={title} description={excerptOf(post)} image={og}>
+  <div class="wrap article-wrap">
+    <nav class="breadcrumb" aria-label="Drobečková navigace"><a href="/">Úvod</a> / <a href="/aktuality/">Aktuality</a></nav>
+    <article>
+      <header class="article-header">
+        <div class="meta">
+          <time datetime={isoDate(date)}>{formatDate(date)}</time>{author && <> · {author}</>}
+        </div>
+        <h1>{title}</h1>
+      </header>
+      {
+        image && !coverInBody && (
+          <figure class="article-cover">
+            <Image src={image} alt="" width={1000} />
+          </figure>
+        )
+      }
+      <div class="prose">
+        <Content />
+      </div>
+      {
+        facebook && (
+          <a class="fb-post" href={facebook} target="_blank" rel="noopener">
+            <FacebookIcon />
+            <span>
+              <b>Fotky a komentáře na Facebooku</b>
+              <small>facebook.com/hkfree</small>
+            </span>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </a>
+        )
+      }
+      <div class="article-footer">
+        <a class="btn btn-dark" href="/aktuality/">← Všechny aktuality</a>
+        <nav class="post-nav" aria-label="Další aktuality">
+          {
+            older && (
+              <a href={urlOf(older)}>
+                <small>← starší</small>
+                {older.data.title}
+              </a>
+            )
+          }
+          {
+            newer && (
+              <a class="next" href={urlOf(newer)}>
+                <small>novější →</small>
+                {newer.data.title}
+              </a>
+            )
+          }
+        </nav>
+      </div>
+    </article>
+  </div>
+</Layout>

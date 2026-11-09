@@ -1,0 +1,132 @@
+---
+import '../styles/druzstvo.css';
+import '../styles/spolek.css';
+import Logo from '../components/Logo.astro';
+import { NAV, SPOLEK } from '../consts';
+import DruzstvoCard from '../components/DruzstvoCard.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = 'Přes dvacet let online, ale i offline. Spolek hkfree.org z Hradce Králové pořádá ples, tábor, bruslení a LAN party a pomáhá školám a neziskovkám.',
+  image,
+  noindex = false,
+} = Astro.props;
+const fullTitle = title ? `${title} — hkfree.org z.s.` : 'hkfree.org z.s. — komunitní spolek z Hradce Králové';
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    {image && <meta property="og:image" content={new URL(image, Astro.site)} />}
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="alternate" type="application/rss+xml" title="Aktuality hkfree.org z.s." href="/rss.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap&subset=latin-ext"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Přejít na obsah</a>
+
+
+    <header class="site">
+      <div class="wrap">
+        <a class="logo" href="/" aria-label="hkfree.org z.s. — úvodní stránka"><Logo /></a>
+        <nav class="main" id="main-nav" aria-label="Hlavní navigace">
+          {NAV.map((n) => <a href={n.href}>{n.label}</a>)}
+          <a class="btn btn-red cta" href="/#pridej-se">Přidej se</a>
+        </nav>
+        <button class="burger" type="button" aria-controls="main-nav" aria-expanded="false">MENU</button>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <div class="pre-foot">
+      <DruzstvoCard />
+    </div>
+
+    <footer class="foot-light">
+      <div class="wrap">
+        <div class="fl-grid">
+          <div>
+            <a class="fl-logo" href="/" aria-label="hkfree.org z.s. — úvodní stránka"><Logo /></a>
+            <p class="fl-legal">
+              {SPOLEK.fullName} · IČ {SPOLEK.ico} · DS {SPOLEK.datovka}<br />{SPOLEK.adresa}
+            </p>
+          </div>
+          <nav class="fl-links" aria-label="Patička">
+            <a href="/#akce">Akce</a>
+            <a href="/aktuality/">Aktuality</a>
+            <a href="/podporujeme/">Podporujeme</a>
+            <a href="/dilna/">Dílna a coworking</a>
+            <a href="/kontakt/">Kontakt</a>
+            <a href="/kontakt/#dokumenty">Dokumenty</a>
+            <a href={SPOLEK.facebook}>Facebook</a>
+            <a href="https://wiki.hkfree.org">Wiki</a>
+            <a href="/rss.xml">RSS</a>
+          </nav>
+          <a class="fl-mail" href={`mailto:${SPOLEK.email}`}>{SPOLEK.email}</a>
+        </div>
+        <div class="fl-bottom">© {year} hkfree.org z.s. · Proud to be in hkfree.org</div>
+      </div>
+    </footer>
+
+    <script>
+      const burger = document.querySelector<HTMLButtonElement>('.burger');
+      const nav = document.querySelector<HTMLElement>('#main-nav');
+      const close = () => {
+        nav?.classList.remove('is-open');
+        burger?.setAttribute('aria-expanded', 'false');
+      };
+      burger?.addEventListener('click', () => {
+        const open = nav?.classList.toggle('is-open') ?? false;
+        burger.setAttribute('aria-expanded', String(open));
+      });
+      nav?.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && nav?.classList.contains('is-open')) {
+          close();
+          burger?.focus();
+        }
+      });
+      if ('IntersectionObserver' in window) {
+        document.documentElement.classList.add('js');
+        const io = new IntersectionObserver(
+          (entries) =>
+            entries.forEach((en) => {
+              if (en.isIntersecting) {
+                en.target.classList.add('in');
+                io.unobserve(en.target);
+              }
+            }),
+          { threshold: 0.12 },
+        );
+        document.querySelectorAll('.rv').forEach((el) => io.observe(el));
+      }
+    </script>
+  </body>
+</html>

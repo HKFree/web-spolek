@@ -1,0 +1,467 @@
+[
+  {
+    "group": "Školy a školská zařízení",
+    "items": [
+      {
+        "name": "Univerzita Hradec Králové",
+        "url": "http://www.uhk.cz"
+      },
+      {
+        "name": "Univerzita Karlova – Farmaceutická fakulta",
+        "url": "http://www.faf.cuni.cz/"
+      },
+      {
+        "name": "Univerzita Karlova – Lékařská fakulta",
+        "url": "https://www.lfhk.cuni.cz/"
+      },
+      {
+        "name": "ZŠ Jiráskova",
+        "url": "http://www.zsjirasek.cz/"
+      },
+      {
+        "name": "ZŠ Kukleny",
+        "url": "http://www.zskukleny.cz"
+      },
+      {
+        "name": "ZŠ Bezručova",
+        "url": "http://bezrucka.cz/"
+      },
+      {
+        "name": "ZŠ Milady Horákové",
+        "url": "http://www.zshorakhk.cz/"
+      },
+      {
+        "name": "Masarykova základní škola a Mateřská škola Plotiště n. L.",
+        "url": "http://www.zsplotiste.eu/"
+      },
+      {
+        "name": "ZŠ Sever",
+        "url": "http://www.zssever.cz/"
+      },
+      {
+        "name": "ZŠ Pouchov",
+        "url": "http://www.zspouchov.cz/"
+      },
+      {
+        "name": "MŠ a ZŠ PROINTEPO",
+        "url": "http://www.prointepo.org/"
+      },
+      {
+        "name": "ZŠ a MŠ Malšova Lhota",
+        "url": "http://www.zs-malsovalhota.cz/"
+      },
+      {
+        "name": "MŠ Sluníčko Třebeš",
+        "url": "http://www.skolkaslunicko.cz/"
+      },
+      {
+        "name": "ZŠ a MŠ Stěžery",
+        "url": "http://www.zsmsstezery.cz/"
+      },
+      {
+        "name": "MŠ Plačice",
+        "url": "http://www.msplacice.cz/"
+      },
+      {
+        "name": "ZŠ Praskačka",
+        "url": "http://www.zspraskacka.cz/"
+      },
+      {
+        "name": "ZŠ a MŠ Lhota pod Libčany",
+        "url": "http://www.zslhotapodlibcany.cz/"
+      },
+      {
+        "name": "ZŠ Nové Město",
+        "url": "http://skola.novemesto.net/"
+      },
+      {
+        "name": "ZŠ a MŠ Nový Hradec Králové",
+        "url": "http://www.zsnovyhk.cz/"
+      },
+      {
+        "name": "ZŠ Smiřice",
+        "url": "https://www.zs-smirice.cz/"
+      },
+      {
+        "name": "MŠ Třebechovická HK",
+        "url": "http://www.mstrebechovicka.cz/"
+      },
+      {
+        "name": "SOŠ a SOU Hradební HK",
+        "url": "http://www.hradebni.cz/"
+      },
+      {
+        "name": "Obchodní akademie, Střední pedagogická škola, Vyšší odborná škola a Jazyková škola s právem státní jazykové zkoušky, s.r.o.",
+        "url": "http://www.soavoshk.cz/"
+      },
+      {
+        "name": "Mateřská škola Lužická Hradec Králové",
+        "url": "http://ms-luzicka-hk.webnode.cz/"
+      },
+      {
+        "name": "Vyšší odborná škola a Střední odborná škola Nový Bydžov",
+        "url": "http://www.sosnb.cz/"
+      },
+      {
+        "name": "VOŠZ a SZŠ Hradec Králové",
+        "url": "http://www.zshk.cz/"
+      },
+      {
+        "name": "ZŠ Štefánikova Hradec Králové",
+        "url": "http://www.zsstefanikovahk.cz/"
+      },
+      {
+        "name": "Školička U Draka Hradec Králové",
+        "url": "http://www.skolickaudraka.cz/"
+      },
+      {
+        "name": "Základní škola, V. Kl. Klicpery, Nový Bydžov",
+        "url": "http://www.klicperka.cz/"
+      },
+      {
+        "name": "Mateřská škola Čtyřlístek",
+        "url": "http://www.ctyrlistek.net/"
+      },
+      {
+        "name": "Základní škola a Mateřská škola Pohádka Mandysova",
+        "url": "http://www.mandyska.cz/"
+      },
+      {
+        "name": "ZŠ Úprkova Hradec Králové",
+        "url": "http://zsuprkova.cz/"
+      },
+      {
+        "name": "STŘEDNÍ ŠKOLA VIZUÁLNÍ TVORBY Hradec Králové",
+        "url": "http://www.florist.cz/"
+      },
+      {
+        "name": "Obchodní akademie, Střední odborná škola a Jazyková škola s právem státní jazykové zkoušky, Hradec Králové",
+        "url": "http://www.oahk.cz/"
+      },
+      {
+        "name": "Střední průmyslová škola elektrotechniky a informačních technologií, Dobruška",
+        "url": "http://spselitdobruska.cz/"
+      },
+      {
+        "name": "Střední škola služeb, obchodu a gastronomie",
+        "url": "http://www.sssoghk.cz/"
+      },
+      {
+        "name": "MŠ Kamarád",
+        "url": "https://www.mskamaradhk.cz/"
+      },
+      {
+        "name": "ZŠ Comenius",
+        "url": "https://skolacomenius.cz/"
+      },
+      {
+        "name": "Střední škola a vyšší odborná škola aplikované kybernetiky s.r.o.",
+        "url": "https://www.ssakhk.cz/"
+      },
+      {
+        "name": "MŠ Kampanova a MŠ Albertova",
+        "url": "https://www.mskampanova.cz/"
+      },
+      {
+        "name": "Speciální škola",
+        "url": "https://www.specialnihk.cz/"
+      },
+      {
+        "name": "SOŠ veterinární, Kukleny",
+        "url": "https://www.sosvet.cz/"
+      },
+      {
+        "name": "SION z.s.",
+        "url": "https://www.sion.cz/"
+      },
+      {
+        "name": "Hledá se Smolíček, o.s.",
+        "url": "https://www.facebook.com/profile.php?id=100066787863908"
+      }
+    ]
+  },
+  {
+    "group": "Knihovny",
+    "items": [
+      {
+        "name": "Knihovna města Hradce Králové",
+        "url": "http://www.knihovnahk.cz/"
+      },
+      {
+        "name": "Knihovna města Hradce Králové pobočka Labská",
+        "url": "http://www.knihovnahk.cz/pro-verejnost/pujcovny/pobocka-labska"
+      },
+      {
+        "name": "Knihovna města Hradce Králové pobočka Plotiště n. L.",
+        "url": "http://www.knihovnahk.cz/pro-verejnost/pujcovny/pobocka-plotiste"
+      },
+      {
+        "name": "Knihovna města Hradce Králové pobočka Nový Hradec Králové",
+        "url": "http://www.knihovnahk.cz/pro-verejnost/pujcovny/pobocka-novy-hradec-kralove"
+      },
+      {
+        "name": "Knihovna města Hradce Králové pobočka Piletice",
+        "url": "http://www.knihovnahk.cz/pro-verejnost/pujcovny/pobocka-piletice"
+      },
+      {
+        "name": "Knihovna města Hradce Králové pobočka Kukleny",
+        "url": "http://www.knihovnahk.cz/pro-verejnost/pujcovny/pobocka-kukleny"
+      },
+      {
+        "name": "Knihovna Střezetice",
+        "url": "http://www.knihovnastrezetice.wz.cz/"
+      },
+      {
+        "name": "Knihovna Dlouhé Dvory",
+        "url": "https://www.novedvory.cz/zivot-v-nd/knihovna/"
+      },
+      {
+        "name": "Městská knihovna v Novém Bydžově",
+        "url": "http://www.novybydzov.cz/knihovna.asp?p1=6162"
+      },
+      {
+        "name": "Obecní knihovna Stěžery",
+        "url": "http://www.stezerskaknihovna.webk.cz/pages/uvod.html"
+      },
+      {
+        "name": "Obecní knihovna Lhota pod Libčany",
+        "url": "http://www.lhotapodlibcany.cz/?page=knihovna"
+      }
+    ]
+  },
+  {
+    "group": "Zdravotnictví",
+    "items": [
+      {
+        "name": "Fakultni nemocnice Hradec Kralové",
+        "url": "http://www.fnhk.cz/",
+        "note": "konektivita pro wifi hotspoty"
+      },
+      {
+        "name": "Zdravotnická záchranná služba Královéhradeckého kraje",
+        "url": "https://www.zzskhk.cz/",
+        "note": "konektivita pro wifi hotspoty"
+      },
+      {
+        "name": "Nemocnice Nový Bydžov",
+        "url": "https://www.nemjc.cz/orientacni-plan-nb-",
+        "note": "konektivita pro wifi hotspoty"
+      }
+    ]
+  },
+  {
+    "group": "Umělecké školy a volnočasové organizace",
+    "items": [
+      {
+        "name": "ZUŠ JITRO",
+        "url": "http://www.jitro.cz/"
+      },
+      {
+        "name": "BONI PUERI – základní umělecká škola",
+        "url": "http://www.bonipueri.cz/"
+      },
+      {
+        "name": "DDM Hradec Králové",
+        "url": "http://barak.cz"
+      },
+      {
+        "name": "DDM Dobruška",
+        "url": "https://ddmdobruska.cz/"
+      },
+      {
+        "name": "KURO Hradec Králové",
+        "url": "http://www.kuro.cz"
+      },
+      {
+        "name": "Bajkazyl",
+        "url": "https://www.bajkazylhk.cz/"
+      },
+      {
+        "name": "NáPLAVKA HK s.r.o.",
+        "url": "https://naplavkahk.cz/"
+      },
+      {
+        "name": "Rádio Orlicko",
+        "url": "https://www.radioorlicko.cz/"
+      },
+      {
+        "name": "BG District s.r.o.",
+        "url": "https://district5.cz/"
+      },
+      {
+        "name": "Hradecká kulturní a vzdělávací společnost",
+        "url": "https://www.adalbertinum.cz/"
+      }
+    ]
+  },
+  {
+    "group": "Centra pro handicapované",
+    "items": [
+      {
+        "name": "Centrum pro integraci osob se zdravotním postižením Královéhradeckého kraje, o.p.s",
+        "url": "http://www.czphk.cz/"
+      },
+      {
+        "name": "Tyfloservis",
+        "url": "http://www.tyfloservis.cz/"
+      },
+      {
+        "name": "Nebuď na nule, z.s.",
+        "url": "https://www.nebudnanule.cz/"
+      }
+    ]
+  },
+  {
+    "group": "Sportovní organizace",
+    "items": [
+      {
+        "name": "FC Olympia HK",
+        "url": "http://www.fcolympia.cz/"
+      },
+      {
+        "name": "Slezská plovárna",
+        "url": "http://www.slezskaplovarna.cz/"
+      },
+      {
+        "name": "TJ Slavia Hradec Králové – Pozemní hokej",
+        "url": "http://ph-slaviahk.cz/"
+      },
+      {
+        "name": "TJ Sokol Nové Město",
+        "url": "https://sokol-novemestonm.webnode.cz/"
+      },
+      {
+        "name": "TJ Sokol Malšovice",
+        "url": "https://malsovice.webnode.cz/"
+      },
+      {
+        "name": "TJ Sokol Stěžery",
+        "url": "http://www.sokolstezery.cz/"
+      },
+      {
+        "name": "Sportpark HIT",
+        "url": "https://www.sportparkhit.cz/"
+      },
+      {
+        "name": "Tenis centrum HK",
+        "url": "http://www.teniscentrumhk.cz/"
+      },
+      {
+        "name": "Sokol Lhota pod Libčany",
+        "url": "https://www.sokollhotapodlibcany.cz/"
+      },
+      {
+        "name": "Sokol Nový Hradec Králové",
+        "url": "https://www.sokol-nhk.cz/"
+      }
+    ]
+  },
+  {
+    "group": "Skautské organizace",
+    "items": [
+      {
+        "name": "Skaut Kukleny",
+        "url": "http://www.skautkukleny.cz/"
+      },
+      {
+        "name": "Středisko Karla Šimka",
+        "url": "http://www.skauthk.cz/"
+      },
+      {
+        "name": "Skaut Stěžery",
+        "url": "https://www.skautstezery.cz/"
+      }
+    ]
+  },
+  {
+    "group": "Kultura",
+    "items": [
+      {
+        "name": "Kino Bio Centrál",
+        "url": "http://www.biocentral.cz/cz"
+      },
+      {
+        "name": "Jiráskovo Divadlo Nový Bydžov",
+        "url": "http://www.jiraskovodivadlo.cz/"
+      },
+      {
+        "name": "Filharmonie Hradec Králové",
+        "url": "https://www.fhk.cz/"
+      }
+    ]
+  },
+  {
+    "group": "Věda",
+    "items": [
+      {
+        "name": "Hvězdárna a planetárium Hradec Králové",
+        "url": "http://www.astrohk.cz"
+      }
+    ]
+  },
+  {
+    "group": "Ostatní",
+    "items": [
+      {
+        "name": "Civitas per Populi Hradec Králové",
+        "url": "http://www.civitas-group.cz/"
+      },
+      {
+        "name": "Muzeum Východních Čech HK",
+        "url": "https://www.muzeumhk.cz/"
+      },
+      {
+        "name": "Městský úřad Nový Bydžov",
+        "url": "http://www.novybydzov.cz/"
+      },
+      {
+        "name": "Město Smiřice",
+        "url": "https://mestosmirice.cz/"
+      },
+      {
+        "name": "SDH Lochenice",
+        "url": "https://www.facebook.com/SDHLochenice/"
+      },
+      {
+        "name": "SDH Nové Město nad Cidlinou",
+        "url": "https://sdhnovemesto.hasicovo.cz/cs/aktuality"
+      },
+      {
+        "name": "Monkey Camp",
+        "url": "http://monkeycamp.cz/"
+      },
+      {
+        "name": "Rodinné centrum Víla Amátka",
+        "url": "http://www.vilaamatka.cz/"
+      },
+      {
+        "name": "Komise místní samosprávy NHK",
+        "url": "https://www.hradeckralove.org/kms-novy-hradec-kralove/ms-31074"
+      },
+      {
+        "name": "JOB – spolek pro inovace",
+        "url": "https://jobvzdelavani.cz/"
+      },
+      {
+        "name": "Městská policie Hradec Králové",
+        "url": "https://www.hradeckralove.org/mestska-policie/os-1123"
+      },
+      {
+        "name": "Krajská hygienická stanice Královéhradeckého kraje",
+        "url": "https://www.khshk.cz/"
+      },
+      {
+        "name": "Dětský diagnostický ústav",
+        "url": "https://www.ddu-hk.cz/"
+      },
+      {
+        "name": "Náboženská obec Církve Československé Husitské v Dobrušce",
+        "url": "https://www.ccsh.cz/obec-detail.html?oid=163&amp;bck=1"
+      },
+      {
+        "name": "Středisko ekologické výchovy SEVER",
+        "url": "https://sever.ekologickavychova.cz/"
+      }
+    ]
+  }
+]

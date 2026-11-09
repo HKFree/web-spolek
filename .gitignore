@@ -1,0 +1,18 @@
+# závislosti a build
+node_modules/
+dist/
+.astro/
+
+# lokální podklady a nástroje (archiv starého webu, screenshoty)
+inspo/
+.playwright-mcp/
+
+# prostředí a editory
+.env
+.env.*
+!.env.example
+.DS_Store
+.vscode/
+.idea/
+*.log
+npm-debug.log*

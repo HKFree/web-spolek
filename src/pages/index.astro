@@ -5,12 +5,14 @@ import Hero from '../components/Hero.astro';
 import DruzstvoCard from '../components/DruzstvoCard.astro';
 import NewsCard from '../components/NewsCard.astro';
 import { AKCE } from '../data/akce';
+import { PROJEKTY } from '../data/projekty';
 import podporujeme from '../data/podporujeme.json';
 import { getAktuality, urlOf, formatDate } from '../lib/aktuality';
 import { SPOLEK, DOKUMENTY, DRUZSTVO } from '../consts';
 
 const posts = await getAktuality();
 const akce = AKCE.map((a) => ({ ...a, last: posts.find((p) => a.match.test(p.data.title)) }));
+const projekty = PROJEKTY.map((pr) => ({ ...pr, url: posts.find((p) => p.id === pr.post) ? urlOf(posts.find((p) => p.id === pr.post)!) : undefined }));
 
 const orgCount = podporujeme.reduce((n, g) => n + g.items.length, 0);
 const count = (prefix: string) => podporujeme.find((g) => g.group.startsWith(prefix))?.items.length ?? 0;
@@ -39,7 +41,7 @@ const vybrane = [
     <div class="wrap">
       <div class="sec-head rv">
         <div class="kicker">akce</div>
-        <h2>Síť není jen o anténách</h2>
+        <h2>Nejen technikou je ajťák živ</h2>
         <p>Pořádáme akce pro členy, rodiny, kamarády i úplně cizí lidi.</p>
       </div>
       <div class="akce">
@@ -53,6 +55,12 @@ const vybrane = [
               <div class="akce-body">
                 <h3>{a.title}</h3>
                 <p>{a.text}</p>
+                {'href' in a && a.href && (
+                  <a class="last" href={a.href}>
+                    <small>dílna a coworking</small>
+                    {a.linkLabel} →
+                  </a>
+                )}
                 {a.last && (
                   <a class="last" href={urlOf(a.last)}>
                     <small>naposledy {formatDate(a.last.data.date)}</small>
@@ -61,6 +69,61 @@ const vybrane = [
                 )}
               </div>
             </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="dilna" class="tinted dilna-sec">
+    <div class="wrap">
+      <div class="dilna-grid">
+        <div class="rv">
+          <div class="kicker">dílna a coworking · připravujeme</div>
+          <h2>Místo, kde se bastlí, opravuje i pracuje</h2>
+          <p class="story-text">
+            O technickém komunitním centru v Hradci mluvíme roky a šetříme na něj. Teď ho chystáme: dílnu, kde se dá pájet, tisknout na 3D tiskárně,
+            opravovat a stavět vlastní projekty, a coworking, kde můžeš pracovat vedle lidí, kteří řeší podobné věci jako ty.
+          </p>
+          <div class="ctas">
+            <a class="btn btn-red" href="/dilna/">Víc o dílně a coworkingu</a>
+            <a class="btn btn-dark" href={`mailto:${SPOLEK.email}?subject=D%C3%ADlna%20a%20coworking`}>Chci vědět, až to začne</a>
+          </div>
+        </div>
+        <div class="blueprint rv" aria-label="Co chystáme">
+          <div class="bp-title">// co chystáme</div>
+          <ul>
+            <li><b>dílna</b><span>ponk, nářadí a pájka pro bastlení a opravy</span></li>
+            <li><b>3D tisk</b><span>tiskárna pro prototypy, krabičky a náhradní díly</span></li>
+            <li><b>laser</b><span>gravírovačka, v plánu do budoucna</span></li>
+            <li><b>coworking</b><span>stůl, rychlý internet a parta vedle</span></li>
+            <li><b>projekty</b><span>zázemí pro technické projekty členů</span></li>
+            <li><b>workshopy</b><span>večery, kdy se učíme jeden od druhého</span></li>
+          </ul>
+          <div class="bp-foot">Hradec Králové · otevření ohlásíme v aktualitách</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projekty">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div class="kicker">projekty a bastlení</div>
+        <h2>Co jsme si postavili</h2>
+        <p>Spolek je hlavně parta lidí, které baví technika. Pár projektů, které vznikly v hkfree.org:</p>
+      </div>
+      <div class="projekty">
+        {
+          projekty.map((pr) => (
+            <a class="projekt rv" href={pr.url ?? pr.link}>
+              <span class="projekt-photo">
+                <Image src={pr.photo} alt="" width={480} height={320} fit="cover" loading="lazy" />
+              </span>
+              <span class="projekt-year">{pr.year}</span>
+              <h3>{pr.title}</h3>
+              <p>{pr.text}</p>
+            </a>
           ))
         }
       </div>
@@ -97,10 +160,11 @@ const vybrane = [
           <li><b>2004</b>Vzniká občanské sdružení hkfree.org</li>
           <li><b>2012</b>Vlastní webkamera nad Hradcem</li>
           <li><b>2014</b>První ples, sdružení se mění na spolek hkfree.org z.s.</li>
-          <li><b>2017</b>První letní tábor v Jedlové</li>
+          <li><b>2016</b>WebSDR rádio a sledování letadel</li>
           <li><b>2019</b>První LAN párty</li>
           <li><b>2024</b>Slavíme 20 let</li>
           <li><b>2025</b>Internet přebírá družstvo, spolek jede dál</li>
+          <li><b>2026</b>Chystáme dílnu a coworking</li>
         </ol>
       </div>
 
@@ -110,8 +174,9 @@ const vybrane = [
           <div class="kicker">spolek · hkfree.org z.s.</div>
           <h3>Tady jsi správně, když…</h3>
           <ul>
-            <li>chceš přijít na ples, tábor, bruslení nebo LAN party</li>
+            <li>chceš přijít na ples, bruslení nebo LAN party</li>
             <li>tě baví technika a chceš se zapojit do projektů</li>
+            <li>hledáš místo na bastlení nebo coworking</li>
             <li>hledáš podporu pro školu nebo neziskovku</li>
           </ul>
         </div>

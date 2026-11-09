@@ -20,10 +20,10 @@ export const DRUZSTVO = {
 
 export const NAV = [
   { href: '/#akce', label: 'Akce' },
+  { href: '/dilna/', label: 'Dílna a coworking' },
   { href: '/aktuality/', label: 'Aktuality' },
   { href: '/#o-spolku', label: 'O spolku' },
   { href: '/podporujeme/', label: 'Podporujeme' },
-  { href: '/dilna/', label: 'Dílna a coworking' },
   { href: '/kontakt/', label: 'Kontakt' },
 ];
 

@@ -9,7 +9,7 @@ const STATIC: Record<string, string> = {
   '/co-to-je-hkfree': '/#o-spolku',
   '/pozadavky-na-clena': '/#pridej-se',
   '/ples': '/#akce-ples',
-  '/tabor': '/#akce-tabor',
+  '/tabor': '/',
   '/druzstvo': 'https://druzstvo.hkfree.org/',
   '/chci-se-pripojit': 'https://druzstvo.hkfree.org/#pripojeni',
   '/helpline': 'https://druzstvo.hkfree.org/kontakt/',

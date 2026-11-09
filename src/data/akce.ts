@@ -1,11 +1,12 @@
 // Pravidelné akce spolku. `match` hledá v názvech aktualit,
 // karta pak odkazuje na nejnovější aktualitu k dané akci.
 import fotoPles from '../content/aktuality/2020-02-19-mame-fotky-z-plesu/87067861_10159815626348508_725097991186153472_o.jpg';
-import fotoTabor from '../content/aktuality/2024-06-29-tabor-je-opet-tady/449363373_1018196433643537_7567353384698530130_n.jpg';
+import fotoStrecha from '../content/aktuality/2021-03-26-megaakce-na-megazapade/DSC_3346-scaled.jpg';
 import fotoBrusleni from '../content/aktuality/2019-03-21-brusle-nazout/Image-from-iOS-1.jpg';
 import fotoLan from '../content/aktuality/2019-12-23-lanparty/sean-do-EHLd2utEf68-unsplash.jpg';
 import fotoDivadlo from '../content/aktuality/2019-06-21-divadelni-festival-je-tu/64587102_10158949629793508_1235241888638828544_o.jpg';
 import fotoVylety from '../content/aktuality/2021-09-12-akce-2/GOPR6044.jpg';
+import fotoBastleni from '../content/aktuality/2016-01-13-projekty-vznikajici-v-hkfree-org/sdr.jpg';
 import fotoWifi from '../content/aktuality/2019-06-21-divadelni-festival-je-tu/64549809_10158949627273508_3993860367376711680_o.jpg';
 
 export const AKCE = [
@@ -16,14 +17,6 @@ export const AKCE = [
     text: 'Živá kapela, DJ v malém sále a tombola, jejíž výtěžek posíláme na dobročinné účely. V roce 2026 už 10. ročník.',
     match: /ples/i,
     photo: fotoPles,
-  },
-  {
-    id: 'tabor',
-    since: 'od 2017',
-    title: 'Letní tábor Jedlová',
-    text: 'Dva týdenní běhy pro děti 6–15 let v Orlických horách. Příroda, zálesáctví, sport, noční hra i spaní pod širákem.',
-    match: /tábor/i,
-    photo: fotoTabor,
   },
   {
     id: 'brusleni',
@@ -57,12 +50,22 @@ export const AKCE = [
     match: /^akce|pivo|gril/i,
     photo: fotoVylety,
   },
+  {
+    id: 'dilna',
+    since: 'připravujeme',
+    title: 'Večery v dílně',
+    text: 'Až otevřeme dílnu, budou tu večery s pájkou a 3D tiskárnou, workshopy, společné opravování a sdílení know-how.',
+    match: /^$/,
+    photo: fotoBastleni,
+    href: '/dilna/',
+    linkLabel: 'Víc o dílně a coworkingu',
+  },
 ];
 
 // Polaroidy v hero na úvodní stránce
 export const HERO_FOTKY = [
   { src: fotoPles, label: 'ples 2020', href: '/#akce-ples' },
-  { src: fotoTabor, label: 'tábor Jedlová 2024', href: '/#akce-tabor' },
+  { src: fotoStrecha, label: 'bastlení v racku', href: '/#projekty' },
   { src: fotoBrusleni, label: 'bruslení zdarma', href: '/#akce-brusleni' },
   { src: fotoWifi, label: 'wifi na festivalu', href: '/#akce-divadlo' },
   { src: fotoVylety, label: 'splutí Orlice', href: '/#akce-vylety' },

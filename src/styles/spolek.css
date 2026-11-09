@@ -100,6 +100,40 @@ section { padding: 88px 0; }
 .akce-body .last:hover { text-decoration: underline; }
 .akce-body .last small { display: block; color: var(--slate); font-family: var(--mono); font-weight: 400; font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; }
 
+/* ---------- dílna a coworking ---------- */
+.dilna-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; }
+.dilna-sec .ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+.blueprint {
+  position: relative; padding: 30px 32px 24px; border: 1.5px dashed #b9ae9b; border-radius: 6px; transform: rotate(.6deg);
+  background:
+    linear-gradient(#e7dfd0 1px, transparent 1px) 0 0 / 22px 22px,
+    linear-gradient(90deg, #e7dfd0 1px, transparent 1px) 0 0 / 22px 22px,
+    var(--card);
+  box-shadow: var(--shadow); font-family: var(--mono);
+}
+.blueprint::before {
+  content: ""; position: absolute; top: -11px; left: 38px; width: 84px; height: 22px; transform: rotate(-4deg);
+  background: #f4e7c8cc; box-shadow: 0 1px 2px #0001;
+}
+.bp-title { color: var(--red); font-size: 13px; letter-spacing: .08em; margin-bottom: 14px; }
+.blueprint ul { list-style: none; }
+.blueprint li { display: grid; grid-template-columns: 110px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px dashed #d6ccba; font-size: 14px; }
+.blueprint li b { color: var(--ink); font-weight: 600; }
+.blueprint li span { color: var(--slate); font-family: var(--sans); font-size: 15px; }
+.dilna-bp { margin-top: 36px; max-width: 640px; }
+.bp-foot { margin-top: 16px; color: var(--slate); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; }
+
+/* ---------- projekty ---------- */
+.projekty { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.projekt { display: flex; flex-direction: column; text-decoration: none; }
+.projekt-photo { display: block; aspect-ratio: 3/2; border-radius: 12px; overflow: hidden; background: var(--paper-dim); box-shadow: var(--shadow); }
+.projekt-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s; }
+.projekt:hover .projekt-photo img { transform: scale(1.04); }
+.projekt-year { margin-top: 16px; font-family: var(--mono); font-size: 12px; letter-spacing: .1em; color: var(--red); }
+.projekt h3 { font-size: 18.5px; font-weight: 780; letter-spacing: -.3px; margin: 4px 0 6px; }
+.projekt:hover h3 { color: var(--red); }
+.projekt p { color: var(--slate); font-size: 14.5px; }
+
 /* ---------- aktuality ---------- */
 .news a { background: var(--card); box-shadow: var(--shadow); }
 .news .news-img { display: block; margin: -28px -28px 20px; border-radius: 15px 15px 0 0; overflow: hidden; aspect-ratio: 16/9; background: var(--paper-dim); }
@@ -209,7 +243,8 @@ section { padding: 88px 0; }
 .fl-bottom { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); font-family: var(--mono); color: var(--slate); font-size: 12px; }
 
 @media (width <= 1020px) {
-  .hero-paper .wrap, .story, .kdo-je-kdo { grid-template-columns: 1fr; }
+  .hero-paper .wrap, .story, .kdo-je-kdo, .dilna-grid { grid-template-columns: 1fr; }
+  .projekty { grid-template-columns: 1fr 1fr; }
   .kjk-druzstvo { border-left: 0; border-top: 1px solid var(--line); }
   .akce { grid-template-columns: 1fr 1fr; }
   .photo-wall { min-height: 420px; }
@@ -217,7 +252,8 @@ section { padding: 88px 0; }
   .fl-links { justify-content: flex-start; }
 }
 @media (width <= 640px) {
-  .akce, .post-nav { grid-template-columns: 1fr; }
+  .akce, .post-nav, .projekty { grid-template-columns: 1fr; }
+  .blueprint li { grid-template-columns: 1fr; gap: 2px; }
   .post-nav .next { grid-column: 1; }
   .org-groups { columns: 1; }
   .archive-year { grid-template-columns: 1fr; gap: 8px; }

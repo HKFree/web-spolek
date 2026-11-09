@@ -2,7 +2,6 @@
 title: "Opět bruslení ZDARMA a PRO VŠECHNY"
 date: 2018-12-06
 author: "Jakub"
-legacyUrl: "/opet-brusleni-zdarma-a-pro-vsechny-3212/"
 ---
 
 Opět bruslení ZDARMA a PRO VŠECHNY

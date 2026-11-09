@@ -3,7 +3,6 @@ title: "HKfree v Čeperce"
 date: 2012-05-12
 author: "dr.easy"
 image: "./2012-05-12-hkfree-v-ceperce/Bez-názvu1.png"
-legacyUrl: "/hkfree-v-ceperce-598/"
 ---
 
 !

@@ -3,7 +3,6 @@ title: "Pomáhame i v Dobrušce"
 date: 2019-04-13
 author: "Jakub"
 image: "./2019-04-13-pomahame-i-v-dobrusce/blur-close-up-computer-1624895.jpg"
-legacyUrl: "/pomahame-i-v-dobrusce-3337/"
 ---
 
 ![blur-close-up-computer-1624895](./2019-04-13-pomahame-i-v-dobrusce/blur-close-up-computer-1624895.jpg)Díky spolku hkfree.org nahrazujeme všechny naše páteřní síťové trasy optikou. Spolek škole daroval mimo jiné i aktivní prvek pro řízení celé optické sítě.

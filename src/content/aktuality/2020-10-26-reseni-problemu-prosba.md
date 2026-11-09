@@ -2,7 +2,6 @@
 title: "Řešení problémů + prosba"
 date: 2020-10-26
 author: "Jakub"
-legacyUrl: "/reseni-problemu-prosba-3742/"
 ---
 
 Vážení členové, obracíte se často na své správce oblastí i na naši podporu, že dětem padá videokonference na distanční výuku, sekají se konferenční hovory, počítač se pravidelně odpojuje, nebo je rychlost nízká a nestabilní.\

@@ -3,7 +3,6 @@ title: "Bruslení už je tu!"
 date: 2019-10-03
 author: "Jakub"
 image: "./2019-10-03-brusleni-uz-je-tu/kelli-mcclintock-1365428-unsplash.jpg"
-legacyUrl: "/brusleni-uz-je-tu-3483/"
 ---
 
 Bruslení ZDARMA a PRO VŠECHNY![kelli-mcclintock-1365428-unsplash](./2019-10-03-brusleni-uz-je-tu/kelli-mcclintock-1365428-unsplash.jpg)\

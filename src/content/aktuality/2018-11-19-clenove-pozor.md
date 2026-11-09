@@ -3,7 +3,6 @@ title: "Členové pozor"
 date: 2018-11-19
 author: "Jakub"
 image: "./2018-11-19-clenove-pozor/Czech_Republic_road_sign_A_22.svg_.png"
-legacyUrl: "/clenove-pozor-3192/"
 ---
 
 Vážení členové spolku,\

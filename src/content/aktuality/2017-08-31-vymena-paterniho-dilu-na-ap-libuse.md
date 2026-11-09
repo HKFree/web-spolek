@@ -3,7 +3,6 @@ title: "Výměna páteřního dílu na AP Libuše"
 date: 2017-08-31
 author: "kendy"
 image: "./2017-08-31-vymena-paterniho-dilu-na-ap-libuse/9137829966536092818-account_id3.jpg"
-legacyUrl: "/vymena-paterniho-dilu-na-ap-libuse-2771/"
 ---
 
 Dnes proběhla výměna důležitého dílu, která mj. zajišťuje provoz sítě v oblasti Libuše. Starý díl už dosluhoval a bylo nezbytné jej vyměnit a nečekat až odejde úplně. Kdyby odešel úplně a neplánovaně, tak by to způsobilo mnohem delší výpadek, než co se stal. To jak vypadá po vytažení z infrastruktury je zachyceno na následující fotce.

@@ -1,7 +1,5 @@
 // Generuje 301 přesměrování starých WordPress adres pro nginx.
 // Containerfile soubor přesune z webrootu do /etc/nginx/ a nginx.conf ho includuje.
-import { getAktuality, urlOf } from '../lib/aktuality';
-
 const STATIC: Record<string, string> = {
   '/stanovy-spolku-hkfree-org-platne-od-1-2-2025': '/kontakt/#dokumenty',
   '/zakladni-dokumenty': '/kontakt/#dokumenty',
@@ -21,12 +19,8 @@ const STATIC: Record<string, string> = {
   '/feed': '/rss.xml',
 };
 
-export async function GET() {
-  const posts = await getAktuality();
+export function GET() {
   const map = new Map(Object.entries(STATIC));
-  for (const p of posts) {
-    if (p.data.legacyUrl) map.set(p.data.legacyUrl.replace(/\/$/, ''), urlOf(p));
-  }
   const lines = [...map].map(([from, to]) => `location ~ ^${from.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/?$ { return 301 ${to}; }`);
   lines.push('location ~ ^/page/\\d+/?$ { return 301 /aktuality/; }');
   lines.push('location ~ ^/(date|author)/ { return 301 /aktuality/; }');

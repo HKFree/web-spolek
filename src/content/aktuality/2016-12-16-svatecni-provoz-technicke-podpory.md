@@ -2,7 +2,6 @@
 title: "Sváteční provoz technické podpory"
 date: 2016-12-16
 author: "Jakub"
-legacyUrl: "/svatecni-provoz-technicke-podpory-2419/"
 ---
 
 Provoz technické podpory členů hkfree.org po telefonu  přes svátky:

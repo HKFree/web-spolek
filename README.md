@@ -49,8 +49,8 @@ podman build -t spolek-web -f Containerfile .
 podman run --rm -p 8080:80 spolek-web
 ```
 
-Výsledkem je nginx:alpine se statikou na portu 80. Staré WordPress adresy (`/ples-2026-4240/` atd.) se přesměrují
-přes 301 podle `legacyUrl` v aktualitách (`src/pages/nginx-redirects.conf.ts`).
+Výsledkem je nginx:alpine se statikou na portu 80. Hlavní stránky starého webu (`/zakladni-dokumenty/`, `/ples/` atd.)
+se přesměrují přes 301 podle `src/pages/nginx-redirects.conf.ts`.
 
 ## Kde co je
 

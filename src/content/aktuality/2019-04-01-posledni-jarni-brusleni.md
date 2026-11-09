@@ -2,7 +2,6 @@
 title: "Poslední jarní bruslení"
 date: 2019-04-01
 author: "Jakub"
-legacyUrl: "/posledni-jarni-brusleni-3324/"
 ---
 
 Bruslení ZDARMA a PRO VŠECHNY\

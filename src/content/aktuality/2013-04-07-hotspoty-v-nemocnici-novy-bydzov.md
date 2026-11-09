@@ -3,7 +3,6 @@ title: "Hotspoty v nemocnici Nový Bydžov"
 date: 2013-04-07
 author: "Jakub"
 image: "./2013-04-07-hotspoty-v-nemocnici-novy-bydzov/343265402.png"
-legacyUrl: "/hotspoty-v-nemocnici-novy-bydzov-1217/"
 ---
 
 !

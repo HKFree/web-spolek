@@ -3,7 +3,6 @@ title: "Jak postavit webkameru z fotoaparátu ? Díl 1."
 date: 2013-02-13
 author: "Pavel Vlček"
 image: "./2013-02-13-jak-postavit-webkameru-z-fotoaparatu-dil-1/image001.jpg"
-legacyUrl: "/jak-postavit-webkameru-z-fotoaparatu-dil-1-1116/"
 ---
 
 UPDATE: tento návod už není aktuální, sledujte stavbu nové webkamery na [http://pajavlk.blogspot.de](http://pajavlk.blogspot.de "http://pajavlk.blogspot.de")

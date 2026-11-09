@@ -3,7 +3,6 @@ title: "Nové AP Volejka"
 date: 2014-03-31
 author: "Mrazil"
 image: "./2014-03-31-nove-ap-volejka/apvolejka1.jpg"
-legacyUrl: "/nove-ap-volejka-1681/"
 ---
 
 V uplynulých dnech bylo spuštěno nové [AP Volejka](http://mapa.hkfree.org/?bod=539), které vykrývá novou zástavbu ve Svobodných dvorech.

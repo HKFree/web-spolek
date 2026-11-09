@@ -3,7 +3,6 @@ title: "ADS-B"
 date: 2016-01-13
 author: "Pavel Vlček"
 image: "./2016-01-13-projekty-vznikajici-v-hkfree-org/00001.jpg"
-legacyUrl: "/projekty-vznikajici-v-hkfree-org-2200/"
 ---
 
 Projekt sledování letících letadel pomocí [ADS-B.\

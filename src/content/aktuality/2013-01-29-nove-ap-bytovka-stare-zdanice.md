@@ -2,7 +2,6 @@
 title: "Nové AP bytovka Staré Ždánice"
 date: 2013-01-29
 author: "RaMaH"
-legacyUrl: "/nove-ap-bytovka-stare-zdanice-1030/"
 ---
 
 Dne 22.12.2012 bylo rozsvíceno nové AP ve Starých Ždánicích. Na AP vede pateřní linka v 5GHz pásmu s rychlostí cca 80Mbit/80Mbit.

@@ -2,7 +2,6 @@
 title: "IV. hkfree.org pivo v Hostinci u Kohouta"
 date: 2018-07-21
 author: "dr.easy"
-legacyUrl: "/iv-hkfree-org-pivo-v-hostinci-u-kohouta-3071/"
 ---
 
 Opět Vás zveme na další hkfree.org pivo, tentokrát do Hostince u Kohouta :)

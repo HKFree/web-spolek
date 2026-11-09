@@ -3,7 +3,6 @@ title: "Webkamera online"
 date: 2014-02-15
 author: "Pavel Vlček"
 image: "./2014-02-15-webkamera-online/IMG_4158.jpg"
-legacyUrl: "/webkamera-online-1619/"
 ---
 
 *![IMG\_4158](./2014-02-15-webkamera-online/IMG_4158.jpg)*Oficiálně jsme uveřejnili náš projekt webkamery. Webkameru naleznete na adrese [http://webcam.hkfree.org](http://webcam.hkfree.org "http://webcam.hkfree.org")

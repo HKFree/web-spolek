@@ -3,7 +3,6 @@ title: "HKfree na Facebooku."
 date: 2011-02-07
 author: "Jakub"
 image: "./2011-02-07-hkfree-na-facebooku/fcb.jpg"
-legacyUrl: "/hkfree-na-facebooku-179/"
 ---
 
 !I HKfree se stalo obětí sociální sítě facebook…\

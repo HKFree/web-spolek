@@ -2,7 +2,6 @@
 title: "Aplikace jsou tady"
 date: 2020-11-03
 author: "Jakub"
-legacyUrl: "/aplikace-jsou-tady-3745/"
 ---
 
 ❗️ Máme fungl nové mobilní aplikace. Pokud jste členem našeho spolku, tak můžete čerpat slevy u našich partnerů.\

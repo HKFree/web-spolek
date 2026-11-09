@@ -3,7 +3,6 @@ title: "Meteostanice GIOM 3000, jak z ní získat data?"
 date: 2013-01-19
 author: "Pavel Vlček"
 image: "./2013-01-19-meteostanice-giom-3000-jak-z-ni-ziskat-data/multifunction-sensor-53747-29465051.jpg"
-legacyUrl: "/meteostanice-giom-3000-jak-z-ni-ziskat-data-979/"
 ---
 
 !

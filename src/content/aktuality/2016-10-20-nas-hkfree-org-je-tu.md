@@ -3,7 +3,6 @@ title: "NAS.HKFREE.ORG je tu!"
 date: 2016-10-20
 author: "Jakub"
 image: "./2016-10-20-nas-hkfree-org-je-tu/nas.png"
-legacyUrl: "/nas-hkfree-org-je-tu-2360/"
 ---
 
 Pojďte s námi testovat nový projekt! Pokud si chcete něco odzálohovat, tak je tu pro Vás\

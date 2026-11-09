@@ -2,7 +2,6 @@
 title: "Internetové družstvo je tady"
 date: 2025-01-04
 author: "Jakub"
-legacyUrl: "/internetove-druzstvo-je-tady-4210/"
 ---
 
 SPOLKOVÝ INTERNET?

@@ -3,7 +3,6 @@ title: "Přístupové body AP Plotiště a AP Kalinka v novém"
 date: 2014-11-13
 author: "Jakub"
 image: "./2014-11-13-upgrade-nasich-pristupovych-bodu/unnamed.jpg"
-legacyUrl: "/upgrade-nasich-pristupovych-bodu-1888/"
 ---
 
 ![unnamed](./2014-11-13-upgrade-nasich-pristupovych-bodu/unnamed.jpg)

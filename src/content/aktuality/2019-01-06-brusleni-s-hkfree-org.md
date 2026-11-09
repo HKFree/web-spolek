@@ -3,7 +3,6 @@ title: "Bruslení s hkfree.org"
 date: 2019-01-06
 author: "Jakub"
 image: "./2019-01-06-brusleni-s-hkfree-org/rawpixel-974578-unsplash.jpg"
-legacyUrl: "/brusleni-s-hkfree-org-3245/"
 ---
 
 Opět bruslení ZDARMA a PRO VŠECHNY![rawpixel-974578-unsplash](./2019-01-06-brusleni-s-hkfree-org/rawpixel-974578-unsplash.jpg)\

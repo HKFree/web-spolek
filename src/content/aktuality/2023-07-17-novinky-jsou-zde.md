@@ -2,7 +2,6 @@
 title: "Novinky jsou zde"
 date: 2023-07-17
 author: "Jakub"
-legacyUrl: "/novinky-jsou-zde-4108/"
 ---
 
 Proběhla velká předělávka na AP v Plotištích nad Labem\

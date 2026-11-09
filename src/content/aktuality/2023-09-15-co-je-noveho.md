@@ -2,7 +2,6 @@
 title: "Co je nového?"
 date: 2023-09-15
 author: "Jakub"
-legacyUrl: "/co-je-noveho-4115/"
 ---
 
 AP Brouzdaliště má nové 🔌zálohované 🔋 napájení\

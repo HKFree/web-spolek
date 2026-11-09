@@ -3,7 +3,6 @@ title: "Co jsme dělali v minulých 2 měsicích."
 date: 2020-06-06
 author: "Jakub"
 image: "./2020-06-06-co-jsme-delali-v-minulych-2-mesicich/98489939_10160222660473508_8705449597146759168_o-1.jpg"
-legacyUrl: "/co-jsme-delali-v-minulych-2-mesicich-3611/"
 ---
 
 ➡️ Přesunuli jsme větší část antén že starého na nový stožár na Bydle.\

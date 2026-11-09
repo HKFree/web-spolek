@@ -3,7 +3,6 @@ title: "Rozbalte si dárek!"
 date: 2018-12-24
 author: "Jakub"
 image: "./2018-12-24-rozbalte-si-darek/bandwidth-close-up-computer-1148820.jpg"
-legacyUrl: "/rozbalte-si-darek-3232/"
 ---
 
 ![bandwidth-close-up-computer-1148820](./2018-12-24-rozbalte-si-darek/bandwidth-close-up-computer-1148820.jpg)

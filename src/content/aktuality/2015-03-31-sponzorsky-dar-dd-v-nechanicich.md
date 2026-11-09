@@ -3,7 +3,6 @@ title: "Podpora Dětského domu v Nechanicích"
 date: 2015-03-31
 author: "Mrazil"
 image: "./2015-03-31-sponzorsky-dar-dd-v-nechanicich/11081203_10153705025383508_5748344777776594903_n.jpg"
-legacyUrl: "/sponzorsky-dar-dd-v-nechanicich-2008/"
 ---
 
 I letošní výtěžek z plesové tomboly ve výši 43.864,- Kč jsme odeslali Dětskému domovu v Nechanicích. Děkujeme všem, kteří přispěli !

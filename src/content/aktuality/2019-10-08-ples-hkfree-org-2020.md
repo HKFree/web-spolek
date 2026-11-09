@@ -3,7 +3,6 @@ title: "Ples HKfree.org 2020"
 date: 2019-10-08
 author: "Glifin"
 image: "./2019-10-08-ples-hkfree-org-2020/hkfree_ples_01.png"
-legacyUrl: "/ples-hkfree-org-2020-3487/"
 ---
 
 ![hkfree\_ples\_01](./2019-10-08-ples-hkfree-org-2020/hkfree_ples_01.png)

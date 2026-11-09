@@ -3,7 +3,6 @@ title: "Webkamera Černigov"
 date: 2014-11-22
 author: "Mrazil"
 image: "./2014-11-22-webkamera-cernigov/latest-originals.jpg"
-legacyUrl: "/webkamera-cernigov-1897/"
 ---
 
 ![latest-originals](./2014-11-22-webkamera-cernigov/latest-originals.jpg)

@@ -18,8 +18,6 @@ const aktuality = defineCollection({
       draft: z.boolean().default(false),
       // odkaz na příspěvek na Facebooku; bez textu vede karta rovnou na FB
       facebook: z.url().optional(),
-      // původní adresa na starém WordPressu (pro přesměrování)
-      legacyUrl: z.string().optional(),
     }),
 });
 

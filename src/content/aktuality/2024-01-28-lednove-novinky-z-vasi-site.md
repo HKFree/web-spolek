@@ -2,7 +2,6 @@
 title: "Lednové novinky z vaší sítě"
 date: 2024-01-28
 author: "Jakub"
-legacyUrl: "/lednove-novinky-z-vasi-site-4136/"
 ---
 
 – AP Zvonička – kompletní výměna 🪫🪫 napájení, routeru a hlavního switche\

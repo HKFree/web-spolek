@@ -3,7 +3,6 @@ title: "Kratohony"
 date: 2019-07-08
 author: "Jakub"
 image: "./2019-07-08-kratohony/20190707_112304.jpg"
-legacyUrl: "/kratohony-3444/"
 ---
 
 AP Škola Kratonohy dnes na brigádě úspěšně dostavěno. Společně s AP Bytovka Kratonohy jsme tedy obnovili kompletně technologii, pokryli nové území a rapidně navýšili rychlost pro členy.

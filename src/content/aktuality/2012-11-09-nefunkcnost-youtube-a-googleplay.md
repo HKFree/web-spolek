@@ -3,7 +3,6 @@ title: "Nefunkčnost YouTube a GooglePlay"
 date: 2012-11-09
 author: "kendy"
 image: "./2012-11-09-nefunkcnost-youtube-a-googleplay/youtube.jpeg"
-legacyUrl: "/nefunkcnost-youtube-a-googleplay-808/"
 ---
 
 ![logo youtube](./2012-11-09-nefunkcnost-youtube-a-googleplay/youtube.jpeg "youtube")

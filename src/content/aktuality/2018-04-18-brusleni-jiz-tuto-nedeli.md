@@ -2,7 +2,6 @@
 title: "Bruslení již tuto neděli"
 date: 2018-04-18
 author: "Jakub"
-legacyUrl: "/brusleni-jiz-tuto-nedeli-2942/"
 ---
 
 Přijďte si s námi zdarma zabruslit.\

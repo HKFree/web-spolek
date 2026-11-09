@@ -2,7 +2,6 @@
 title: "Čím se považujeme za prospěšné svému okolí?"
 date: 2018-05-11
 author: "Zavis"
-legacyUrl: "/cim-se-povazujeme-za-prospesne-svemu-okoli-2969/"
 ---
 
 Jedním z našich cílů je odstraňování komunikačních bariér mezi lidmi a podpora veřejně prospěšných projektů.

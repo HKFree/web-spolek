@@ -3,7 +3,6 @@ title: "AP Dvorská přesunuto"
 date: 2013-04-05
 author: "Jakub"
 image: "./2013-04-05-ap-dvorska-presunuto/Výstřižek.png"
-legacyUrl: "/ap-dvorska-presunuto-1199/"
 ---
 
 V minulých dnech bylo přesunuto a  AP ve Svobodných dvorech.

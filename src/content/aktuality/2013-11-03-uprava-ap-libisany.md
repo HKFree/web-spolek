@@ -3,7 +3,6 @@ title: "Úprava AP Libišany"
 date: 2013-11-03
 author: "RaMaH"
 image: "./2013-11-03-uprava-ap-libisany/WP_20131103_13_59_26_Pro.jpg"
-legacyUrl: "/uprava-ap-libisany-1477/"
 ---
 
 !Dne 3.11.2013 bylo spustěno upravené AP Libišany. Proběhl upgrade na 5GHz a přesouvalo se o [na jiné umístění](http://mapa.hkfree.org/?bod=4015)  kvůli zlepšení  možnosti připojení.

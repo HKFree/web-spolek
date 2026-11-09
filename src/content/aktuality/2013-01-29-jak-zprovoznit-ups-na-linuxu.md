@@ -3,7 +3,6 @@ title: "Jak zprovoznit UPS na linuxu?"
 date: 2013-01-29
 author: "Pavel Vlček"
 image: "./2013-01-29-jak-zprovoznit-ups-na-linuxu/000001.jpg"
-legacyUrl: "/jak-zprovoznit-ups-na-linuxu-1045/"
 ---
 
 ## !Linux vs UPS

@@ -3,7 +3,6 @@ title: "AP Nový Bydžov v provozu"
 date: 2011-05-17
 author: "Jakub"
 image: "./2011-05-17-ap-novy-bydzov-v-provozu/640x480-IMG_1120.jpg"
-legacyUrl: "/ap-novy-bydzov-v-provozu-279/"
 ---
 
 !

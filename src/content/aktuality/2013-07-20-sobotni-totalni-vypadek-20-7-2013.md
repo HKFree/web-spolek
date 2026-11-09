@@ -2,7 +2,6 @@
 title: "Sobotni totalni vypadek 20.7.2013"
 date: 2013-07-20
 author: "kendy"
-legacyUrl: "/sobotni-totalni-vypadek-20-7-2013-1363/"
 ---
 
 Dnes v brzkém ránu, došlo k totálnímu výpadku.\

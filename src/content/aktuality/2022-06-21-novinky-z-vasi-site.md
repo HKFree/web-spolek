@@ -3,7 +3,6 @@ title: "Novinky z Vaší sítě:"
 date: 2022-06-21
 author: "Jakub"
 image: "./2022-06-21-novinky-z-vasi-site/obrazek-10.png"
-legacyUrl: "/novinky-z-vasi-site-4031/"
 ---
 
 – proběhl dlouho očekávaný upgrade AP Sekaninova\

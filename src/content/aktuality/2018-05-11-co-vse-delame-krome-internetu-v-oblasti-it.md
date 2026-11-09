@@ -2,7 +2,6 @@
 title: "Co vše děláme kromě internetu v oblasti IT?"
 date: 2018-05-11
 author: "Zavis"
-legacyUrl: "/co-vse-delame-krome-internetu-v-oblasti-it-2967/"
 ---
 
 Připojení k internetu prostřednictvím sítě hkfree je sice členy nejvyužívanější služba sítě, ale zdaleka to není jediná služba a smysl celé sítě.

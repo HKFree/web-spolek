@@ -2,7 +2,6 @@
 title: "1. LAN párty hkfree.org"
 date: 2019-01-09
 author: "dr.easy"
-legacyUrl: "/1-lan-party-hkfree-org-3248/"
 ---
 
 !!! Zveme Vás na první [hkfree.org](http://hkfree.org/) LAN Párty !!!\

@@ -2,7 +2,6 @@
 title: "Jsou členové Výkonného výboru „majiteli“ spolku?"
 date: 2018-05-11
 author: "Zavis"
-legacyUrl: "/jsou-clenove-vykonneho-vyboru-majiteli-spolku-2965/"
 ---
 
 Výkonný výbor je pětičlenný, volený Valnou hromadou spolku. Pro nikoho z jeho členů není spolek přímým či nepřímým zdrojem jakýchkoliv příjmů, všichni máme svá civilní zaměstnání. Někteří podnikáme, ale nejsme dodavateli spolku, předměty podnikání nijak se spolkem nekolidují.

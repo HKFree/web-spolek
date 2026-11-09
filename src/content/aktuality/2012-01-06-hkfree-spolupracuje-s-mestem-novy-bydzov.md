@@ -2,7 +2,6 @@
 title: "HKfree spolupracuje s městem Nový Bydžov!"
 date: 2012-01-06
 author: "dr.easy"
-legacyUrl: "/hkfree-spolupracuje-s-mestem-novy-bydzov-446/"
 ---
 
 HKfree jakožto nezisková organizace započala svoji spolupráci s městem Nový Bydžov.\

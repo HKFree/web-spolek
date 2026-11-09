@@ -2,7 +2,6 @@
 title: "Změna bankovního účtu"
 date: 2012-11-20
 author: "Jakub"
-legacyUrl: "/zmena-bankovniho-uctu-838/"
 ---
 
 Vážení členové, změňte si neprodleně číslo účtu u Vašich plateb členského příspěvku.

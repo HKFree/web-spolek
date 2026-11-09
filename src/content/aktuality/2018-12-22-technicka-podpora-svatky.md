@@ -3,7 +3,6 @@ title: "Technická podpora – svátky"
 date: 2018-12-22
 author: "Jakub"
 image: "./2018-12-22-technicka-podpora-svatky/infolinka.jpg"
-legacyUrl: "/technicka-podpora-svatky-3222/"
 ---
 
 \

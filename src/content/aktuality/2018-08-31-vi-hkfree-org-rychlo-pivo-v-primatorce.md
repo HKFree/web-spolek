@@ -2,7 +2,6 @@
 title: "VI. hkfree.org rychlo-pivo v Primátorce"
 date: 2018-08-31
 author: "dr.easy"
-legacyUrl: "/vi-hkfree-org-rychlo-pivo-v-primatorce-3133/"
 ---
 
 Vzhledem k událostem v posledních dnech jsme se rozhodli svolat jedno rychlo-pivo, kde můžeme probrat mezi sebou „zážitky“, navrhovaná řešení a nebo se prostě jenom „vyvztekat“ na toho, kdo to způsobil.\

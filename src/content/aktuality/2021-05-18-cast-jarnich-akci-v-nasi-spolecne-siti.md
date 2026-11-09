@@ -3,7 +3,6 @@ title: "Část jarních akcí v naší společné síti:"
 date: 2021-05-18
 author: "Jakub"
 image: "./2021-05-18-cast-jarnich-akci-v-nasi-spolecne-siti/IMG_20210505_182125709.jpg"
-legacyUrl: "/cast-jarnich-akci-v-nasi-spolecne-siti-3842/"
 ---
 
 \

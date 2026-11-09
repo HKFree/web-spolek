@@ -2,7 +2,6 @@
 title: "Nové AP Nový Bydžov centrum"
 date: 2012-01-06
 author: "dr.easy"
-legacyUrl: "/nove-ap-novy-bydzov-centrum-441/"
 ---
 
 Po testovacím provozu je plně funkční AP Nový Bydžov centrum!

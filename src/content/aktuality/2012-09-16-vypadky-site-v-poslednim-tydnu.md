@@ -3,7 +3,6 @@ title: "Výpadky sítě v posledním týdnu"
 date: 2012-09-16
 author: "kendy"
 image: "./2012-09-16-vypadky-site-v-poslednim-tydnu/smokeping1.png"
-legacyUrl: "/vypadky-site-v-poslednim-tydnu-730/"
 ---
 
 !

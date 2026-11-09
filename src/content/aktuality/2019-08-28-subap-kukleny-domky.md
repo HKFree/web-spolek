@@ -3,7 +3,6 @@ title: "Subap  Kukleny – Domky"
 date: 2019-08-28
 author: "Jakub"
 image: "./2019-08-28-subap-kukleny-domky/69060845_10159142822898508_6301005438875860992_o.jpg"
-legacyUrl: "/subap-kukleny-domky-3468/"
 ---
 
 V srpnu bylo slavnostně spuštěno další nové kuklenské subap \

@@ -3,7 +3,6 @@ title: "Ples HKfree.org 2019"
 date: 2018-10-24
 author: "Zavis"
 image: "./2018-10-24-ples-hkfree-org-2019/hkfree_ples_01.png"
-legacyUrl: "/ples-hkfree-org-2019-3168/"
 ---
 
 ![hkfree\_ples\_01](./2018-10-24-ples-hkfree-org-2019/hkfree_ples_01.png)

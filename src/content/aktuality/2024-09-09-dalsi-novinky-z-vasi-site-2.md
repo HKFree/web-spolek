@@ -3,7 +3,6 @@ title: "Další novinky z vaší sítě"
 date: 2024-09-09
 author: "Jakub"
 image: "./2024-09-09-dalsi-novinky-z-vasi-site-2/IMG_6923-2-scaled.jpg"
-legacyUrl: "/dalsi-novinky-z-vasi-site-2-4175/"
 ---
 
 Na AP Sokol proběhl velký upgrade chlazení ❄️❄️\

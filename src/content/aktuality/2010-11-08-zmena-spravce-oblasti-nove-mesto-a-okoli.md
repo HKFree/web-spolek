@@ -2,7 +2,6 @@
 title: "Změna správce oblasti Nové Město a okolí"
 date: 2010-11-08
 author: "Tomáš Pecen"
-legacyUrl: "/zmena-spravce-oblasti-nove-mesto-a-okoli-105/"
 ---
 
 Z důvodu, že býv. správce p. David Vlk přestal již vykonávat funkci správce oblasti v Novém Městě a okolí, kde se pokusil dokonce uživatele naší sítě přeprodat jiné síti došlo k určitým změnám…

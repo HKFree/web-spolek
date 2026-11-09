@@ -2,7 +2,6 @@
 title: "Čím jsme spolek a ne poskytovatel internetu?"
 date: 2018-05-11
 author: "Zavis"
-legacyUrl: "/cim-jsme-spolek-a-ne-poskytovatel-internetu-2959/"
 ---
 
 My jsme s nejlepším vědomím a svědomím přesvědčeni, že jsme spolek, ale Finanční správa tvrdí, že se za spolek pouze maskujeme, abychom nemuseli platit daně. Zde uvádíme několik zásadních bodů, které cítíme jako hlavní odlišnost od podnikajících subjektů.

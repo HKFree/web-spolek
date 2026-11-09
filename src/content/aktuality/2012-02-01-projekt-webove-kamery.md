@@ -3,7 +3,6 @@ title: "Projekt webové kamery"
 date: 2012-02-01
 author: "dr.easy"
 image: "./2012-02-01-projekt-webove-kamery/CIMG67601.jpg"
-legacyUrl: "/projekt-webove-kamery-471/"
 ---
 
 !

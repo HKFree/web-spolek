@@ -3,7 +3,6 @@ title: "Kratonohy v novém"
 date: 2019-06-25
 author: "Jakub"
 image: "./2019-06-25-kratonohy-v-novem/20190623_191636.jpg"
-legacyUrl: "/kratonohy-v-novem-3422/"
 ---
 
 Správce oblasti Patrik Onodi se pustil do kompletní rekonstrukce infrastruktury našeho AP v Kratonohách. To je teď zpět ve skvělé kondici a plné síle.

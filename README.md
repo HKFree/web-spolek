@@ -28,6 +28,12 @@ Zveme vás na **bruslení zdarma**…
   Když soubor nemá žádný text (jen hlavičku s `title`, `date`, `description` a `facebook`),
   karta ve výpisu vede rovnou na Facebook a vlastní stránka se negeneruje.
 
+## Dokumenty
+
+- **Přidat:** nahraj PDF do `public/dokumenty/` a přidej řádek do `DOKUMENTY` v `src/consts.ts`
+  (`{ href: '/dokumenty/soubor.pdf', label: 'Název' }`).
+- **Smazat:** odeber řádek z `DOKUMENTY` a smaž PDF z `public/dokumenty/`.
+
 ## Vývoj
 
 ```sh

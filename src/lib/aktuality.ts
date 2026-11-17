@@ -5,10 +5,16 @@ export type Aktualita = CollectionEntry<'aktuality'>;
 /** Všechny publikované aktuality, nejnovější první. */
 export async function getAktuality(): Promise<Aktualita[]> {
   const all = await getCollection('aktuality', ({ data }) => (import.meta.env.PROD ? !data.draft : true));
+  const seen = new Map<string, string>();
+  for (const post of all) {
+    const other = seen.get(slugOf(post));
+    if (other) throw new Error(`Aktuality ${other} a ${post.id} by měly stejnou adresu /aktuality/${slugOf(post)}/`);
+    seen.set(slugOf(post), post.id);
+  }
   return all.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 }
 
-/** "2025-12-22-ples-2026" -> "ples-2026" */
+/** "2025-12-22-ples-2026" -> "ples-2026"; nové aktuality datum v názvu nemají */
 export const slugOf = (post: Aktualita) => post.id.replace(/^\d{4}-\d{2}-\d{2}-/, '');
 /** Aktualita jen s odkazem na Facebook (bez vlastního textu) nemá detail na webu. */
 export const isFacebookOnly = (post: Aktualita) => !!post.data.facebook && !(post.body ?? '').trim();

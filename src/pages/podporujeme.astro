@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import podporujeme from '../data/podporujeme.json';
+import podporujemeData from '../data/podporujeme.json';
+
+const podporujeme = podporujemeData.skupiny;
 
 const total = podporujeme.reduce((n, g) => n + g.items.length, 0);
 const schools = podporujeme.find((g) => g.group.startsWith('Školy'))?.items.length ?? 0;

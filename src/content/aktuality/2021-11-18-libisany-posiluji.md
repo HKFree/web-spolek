@@ -7,10 +7,6 @@ image: "./2021-11-18-libisany-posiluji/Image-from-iOS-1.jpg"
 
 Ať je zima nebo teplo, v posilování kapacit vašich přístupových bodů nám to nezabrání. Tentokrát přišel na řadu bod LiSt v Libišanech. Nově je připojen v pásmu 60GHz s dostatečnou kapacitou pro tamní náročné členy, jejich práci i zábavu.
 
-<div class="gallery">
-
-!
-!
-!
-
-</div>
+![](./2021-11-18-libisany-posiluji/Image-from-iOS-1.jpg)
+![](./2021-11-18-libisany-posiluji/20211117_151353.jpg)
+![](./2021-11-18-libisany-posiluji/20211117_151102.jpg)

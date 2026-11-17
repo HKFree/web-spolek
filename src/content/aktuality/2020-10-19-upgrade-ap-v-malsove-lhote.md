@@ -9,13 +9,9 @@ V sobotu proběhla první část modernizace na AP MalhotaA v Malšově Lhotě. 
 
 Další plán rozvoje je příprava jednoho nebo dvou menších subAP pro rozložení zátěže a lepší připojení více členů.
 
-<div class="gallery">
-
-!
-!
-!
-!
-!
-!
-
-</div>
+![](./2020-10-19-upgrade-ap-v-malsove-lhote/1-1.jpeg)
+![](./2020-10-19-upgrade-ap-v-malsove-lhote/2-1.jpeg)
+![](./2020-10-19-upgrade-ap-v-malsove-lhote/3-1.jpg)
+![](./2020-10-19-upgrade-ap-v-malsove-lhote/4.jpg)
+![](./2020-10-19-upgrade-ap-v-malsove-lhote/5-1.jpg)
+![](./2020-10-19-upgrade-ap-v-malsove-lhote/6-1.jpg)

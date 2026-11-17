@@ -1,0 +1,16 @@
+# Redakce pro dev nasazení: Node server s Keystaticem + publikace statického webu.
+# Sestavuje se z kořene repozitáře přes compose.yaml.
+FROM docker.io/library/node:24-alpine
+RUN apk add --no-cache git openssh-client
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci --no-audit --no-fund
+COPY . .
+ARG PUBLIC_DOMAIN=
+ENV ASTRO_TELEMETRY_DISABLED=1 NODE_ENV=production
+RUN REDAKCE=server PUBLIC_DOMAIN="$PUBLIC_DOMAIN" npx astro build \
+ && mkdir -p /srv/repo /srv/www \
+ && chown -R node:node /app /srv
+USER node
+EXPOSE 4321
+CMD ["node", "deploy/redakce/start.mjs"]

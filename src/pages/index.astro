@@ -4,15 +4,24 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import DruzstvoCard from '../components/DruzstvoCard.astro';
 import NewsCard from '../components/NewsCard.astro';
-import { AKCE } from '../data/akce';
-import { PROJEKTY } from '../data/projekty';
-import podporujeme from '../data/podporujeme.json';
+import { getCollection } from 'astro:content';
+import podporujemeData from '../data/podporujeme.json';
 import { getAktuality, urlOf, formatDate } from '../lib/aktuality';
-import { SPOLEK, DOKUMENTY, DRUZSTVO } from '../consts';
+import { SPOLEK, DOKUMENTY, STANOVY, DRUZSTVO } from '../consts';
 
+const byOrder = <T extends { data: { order: number; title: string } }>(a: T, b: T) =>
+  a.data.order - b.data.order || a.data.title.localeCompare(b.data.title, 'cs');
 const posts = await getAktuality();
-const akce = AKCE.map((a) => ({ ...a, last: posts.find((p) => a.match.test(p.data.title)) }));
-const projekty = PROJEKTY.map((pr) => ({ ...pr, url: posts.find((p) => p.id === pr.post) ? urlOf(posts.find((p) => p.id === pr.post)!) : undefined }));
+const akce = (await getCollection('akce')).sort(byOrder).map(({ id, data }) => ({
+  id,
+  ...data,
+  last: posts.find((p) => p.data.akce === id),
+}));
+const projekty = (await getCollection('projekty')).sort(byOrder).map(({ data }) => {
+  const post = posts.find((p) => p.id === data.post);
+  return { ...data, url: post ? urlOf(post) : data.link || undefined };
+});
+const podporujeme = podporujemeData.skupiny;
 
 const orgCount = podporujeme.reduce((n, g) => n + g.items.length, 0);
 const count = (prefix: string) => podporujeme.find((g) => g.group.startsWith(prefix))?.items.length ?? 0;
@@ -55,7 +64,7 @@ const vybrane = [
               <div class="akce-body">
                 <h3>{a.title}</h3>
                 <p>{a.text}</p>
-                {'href' in a && a.href && (
+                {a.href && (
                   <a class="last" href={a.href}>
                     <small>dílna a coworking</small>
                     {a.linkLabel} →
@@ -116,7 +125,7 @@ const vybrane = [
       <div class="projekty">
         {
           projekty.map((pr) => (
-            <a class="projekt rv" href={pr.url ?? pr.link}>
+            <a class="projekt rv" href={pr.url}>
               <span class="projekt-photo">
                 <Image src={pr.photo} alt="" width={480} height={320} fit="cover" loading="lazy" />
               </span>
@@ -222,7 +231,7 @@ const vybrane = [
           <h2>Přidej ruku nebo hlavu k dílu</h2>
           <p class="story-text">
             Spolek stojí na lidech, kteří dělají věci ve volném čase a baví je to. Členem může být kdokoliv. Stačí napsat výkonnému výboru, co tě
-            baví a s čím bys rád pomohl. O přijetí rozhoduje výbor a souhlas se <a href={DOKUMENTY[0].href}>stanovami</a> potvrdíš prvním členským
+            baví a s čím bys rád pomohl. O přijetí rozhoduje výbor a souhlas se <a href={STANOVY.href}>stanovami</a> potvrdíš prvním členským
             příspěvkem.
           </p>
           <div class="ctas">

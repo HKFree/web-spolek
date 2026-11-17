@@ -16,19 +16,15 @@ image: "./2021-05-18-cast-jarnich-akci-v-nasi-spolecne-siti/IMG_20210505_1821257
 👉 Proběhlo další kolo upgradů v Plotištích nad Labem.\
 ❗ Máte chuť se k nám přidat a něco se při tom naučit? Ozvěte se! 😉
 
-<div class="gallery">
-
-!
-!
-!
-!
-!
-!
-!
-!
-!
-!
-!
-!
-
-</div>
+![](./2021-05-18-cast-jarnich-akci-v-nasi-spolecne-siti/IMG_20210505_182125709.jpg)
+![](./2021-05-18-cast-jarnich-akci-v-nasi-spolecne-siti/IMG_20210505_182054483.jpg)
+![](./2021-05-18-cast-jarnich-akci-v-nasi-spolecne-siti/IMG_20210505_180928109_HDR.jpg)
+![](./2021-05-18-cast-jarnich-akci-v-nasi-spolecne-siti/obrazek-9.png)
+![](./2021-05-18-cast-jarnich-akci-v-nasi-spolecne-siti/obrazek-7.png)
+![](./2021-05-18-cast-jarnich-akci-v-nasi-spolecne-siti/obrazek-8.png)
+![](./2021-05-18-cast-jarnich-akci-v-nasi-spolecne-siti/obrazek-6.png)
+![](./2021-05-18-cast-jarnich-akci-v-nasi-spolecne-siti/obrazek-5.png)
+![](./2021-05-18-cast-jarnich-akci-v-nasi-spolecne-siti/obrazek-4.png)
+![](./2021-05-18-cast-jarnich-akci-v-nasi-spolecne-siti/Image-from-iOS-1.jpg)
+![](./2021-05-18-cast-jarnich-akci-v-nasi-spolecne-siti/Image-from-iOS.jpg)
+![](./2021-05-18-cast-jarnich-akci-v-nasi-spolecne-siti/Screenshot_20210330-165938.png)

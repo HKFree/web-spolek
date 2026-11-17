@@ -2,6 +2,7 @@
 title: "Poslední jarní bruslení"
 date: 2019-04-01
 author: "Jakub"
+akce: brusleni
 ---
 
 Bruslení ZDARMA a PRO VŠECHNY\

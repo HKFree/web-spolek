@@ -10,10 +10,6 @@ image: "./2022-12-06-novinky-z-vasi-site-2/IMG_20221018_164842-scaled.jpg"
 – Vzniklo nové AP Střezetice – Statek- na hlavním bodě PMV proběhla připrava přechodu na 40Gbit infrastrukturu\
 – Připravujeme komunitní dílnu
 
-<div class="gallery">
-
-!
-!
-!
-
-</div>
+![](./2022-12-06-novinky-z-vasi-site-2/IMG_20221018_164842-scaled.jpg)
+![](./2022-12-06-novinky-z-vasi-site-2/IMG_20221018_164736-scaled.jpg)
+![](./2022-12-06-novinky-z-vasi-site-2/IMG_20220822_102343152_HDR-1-scaled.jpg)

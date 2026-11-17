@@ -3,6 +3,7 @@ title: "Peníze z plesové tomboly pomůžou"
 date: 2014-03-13
 author: "Jakub"
 image: "./2014-03-13-penize-z-plesove-tomboly-pomuzou/darovaci.jpg"
+akce: ples
 ---
 
 ![darovaci](./2014-03-13-penize-z-plesove-tomboly-pomuzou/darovaci.jpg)

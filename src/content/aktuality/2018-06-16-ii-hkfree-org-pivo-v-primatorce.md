@@ -2,6 +2,7 @@
 title: "II. hkfree.org pivo v Primátorce"
 date: 2018-06-16
 author: "dr.easy"
+akce: vylety
 ---
 
 Opět Vás zveme na další hkfree.org pivo, tentokrát do Primátorky :)

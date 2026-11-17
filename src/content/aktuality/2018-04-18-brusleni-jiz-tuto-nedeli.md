@@ -2,6 +2,7 @@
 title: "Bruslení již tuto neděli"
 date: 2018-04-18
 author: "Jakub"
+akce: brusleni
 ---
 
 Přijďte si s námi zdarma zabruslit.\

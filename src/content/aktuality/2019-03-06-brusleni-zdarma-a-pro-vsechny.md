@@ -3,6 +3,7 @@ title: "Bruslení ZDARMA a PRO VŠECHNY"
 date: 2019-03-06
 author: "Jakub"
 image: "./2019-03-06-brusleni-zdarma-a-pro-vsechny/kelli-mcclintock-1365428-unsplash.jpg"
+akce: brusleni
 ---
 
 ![kelli-mcclintock-1365428-unsplash](./2019-03-06-brusleni-zdarma-a-pro-vsechny/kelli-mcclintock-1365428-unsplash.jpg)\

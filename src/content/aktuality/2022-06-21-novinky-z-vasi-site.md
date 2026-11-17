@@ -14,12 +14,8 @@ image: "./2022-06-21-novinky-z-vasi-site/obrazek-10.png"
 – v Malšovicích jsme přemontovali AP\
 – ve Lhotě pod Libčany proběhl upgrade napájení spojů
 
-<div class="gallery">
-
-!
-!
-!
-!
-!
-
-</div>
+![](./2022-06-21-novinky-z-vasi-site/obrazek-10.png)
+![](./2022-06-21-novinky-z-vasi-site/IMG_20210422_103026_HDR-scaled.jpg)
+![](./2022-06-21-novinky-z-vasi-site/IMG_2072-scaled.jpg)
+![](./2022-06-21-novinky-z-vasi-site/IMG_2059-scaled.jpg)
+![](./2022-06-21-novinky-z-vasi-site/IMG_2071-scaled.jpg)

@@ -1,3 +1,5 @@
+import dokumentyData from './data/dokumenty.json';
+
 export const SPOLEK = {
   name: 'hkfree.org z.s.',
   fullName: 'hkfree.org, zapsaný spolek',
@@ -27,6 +29,6 @@ export const NAV = [
   { href: '/kontakt/', label: 'Kontakt' },
 ];
 
-export const DOKUMENTY = [
-  { href: '/dokumenty/stanovy-spolku-2025.pdf', label: 'Stanovy spolku (platné od 1. 2. 2025)' },
-];
+// Dokumenty spravuje redakce, PDF leží v public/dokumenty/
+export const DOKUMENTY = dokumentyData.dokumenty.map((d) => ({ href: d.file, label: d.label }));
+export const STANOVY = DOKUMENTY.find((d) => /stanov/i.test(d.label)) ?? DOKUMENTY[0];

@@ -2,6 +2,7 @@
 title: "1. LAN párty hkfree.org"
 date: 2019-01-09
 author: "dr.easy"
+akce: lan
 ---
 
 !!! Zveme Vás na první [hkfree.org](http://hkfree.org/) LAN Párty !!!\

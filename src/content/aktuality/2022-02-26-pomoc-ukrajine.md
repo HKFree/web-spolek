@@ -7,9 +7,5 @@ image: "./2022-02-26-pomoc-ukrajine/IMG_0324.jpg"
 
 Společně se skauty se nám dnes podařilo vybrat 4 plné auta pomoci pro Ukrajinu. Díky všem, kdo jste pomohli! [Sledujte náš FB](https://www.facebook.com/hkfree).\
 
-<div class="gallery">
-
-!
-!
-
-</div>
+![](./2022-02-26-pomoc-ukrajine/IMG_0324.jpg)
+![](./2022-02-26-pomoc-ukrajine/IMG_0320.jpg)

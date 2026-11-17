@@ -2,6 +2,7 @@
 title: "Opět bruslení ZDARMA a PRO VŠECHNY"
 date: 2018-12-06
 author: "Jakub"
+akce: brusleni
 ---
 
 Opět bruslení ZDARMA a PRO VŠECHNY

@@ -1,0 +1,48 @@
+# Dev nasazení s redakcí (Keystatic). Nastavení v .env, viz .env.example a README.
+# Produkční statický web bez redakce dál staví Containerfile v kořeni.
+services:
+  redakce:
+    build:
+      context: .
+      dockerfile: deploy/redakce/Containerfile
+      args:
+        PUBLIC_DOMAIN: ${PUBLIC_DOMAIN:-}
+    restart: unless-stopped
+    healthcheck:
+      # zdravá, jakmile je zveřejněný první build webu
+      test: ['CMD', 'test', '-e', '/srv/www/current/index.html']
+      interval: 5s
+      timeout: 3s
+      retries: 3
+      start_period: 180s
+    environment:
+      AUTH_MODE: ${AUTH_MODE:-password}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?Nastav ADMIN_PASSWORD v .env}
+      GIT_REMOTE: ${GIT_REMOTE:-}
+      GIT_BRANCH: ${GIT_BRANCH:-redakce-dev}
+      GIT_PUSH: ${GIT_PUSH:-false}
+      GIT_SSH_COMMAND: ${GIT_SSH_COMMAND:-}
+    volumes:
+      - repo:/srv/repo
+      - www:/srv/www
+      # Deploy klíč pro push na GitHub (viz README):
+      # - ./deploy-key:/run/secrets/deploy-key:ro
+
+  web:
+    image: docker.io/library/nginx:1-alpine-slim
+    restart: unless-stopped
+    depends_on:
+      redakce:
+        condition: service_healthy
+    ports:
+      - '${WEB_PORT:-8080}:80'
+    environment:
+      NGINX_ENTRYPOINT_LOCAL_RESOLVERS: '1'
+    volumes:
+      - www:/srv/www:ro
+      - ./deploy/redakce/nginx.conf:/etc/nginx/templates/default.conf.template:ro
+      - ./deploy/redakce/proxy.inc:/etc/nginx/conf.d/proxy.inc:ro
+
+volumes:
+  repo:
+  www:

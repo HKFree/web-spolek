@@ -1,0 +1,55 @@
+---
+import Editor from './Editor';
+
+export const prerender = false;
+
+const user = Astro.locals.redaktor;
+---
+
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Redakce | hkfree.org z.s.</title>
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <style>
+      .redaktor { position: fixed; bottom: 16px; left: 16px; z-index: 1000; display: flex; gap: 8px; align-items: center; font: 13px system-ui, sans-serif; }
+      .redaktor span, .redaktor button, .redaktor a { background: #fff; color: #16181d; border: 1px solid #ccc; border-radius: 8px; padding: 8px 10px; font: inherit; text-decoration: none; }
+      .redaktor button, .redaktor a { cursor: pointer; }
+      .redaktor .stav:empty { display: none; }
+      .redaktor .stav[data-state='error'] { border-color: #cc0000; color: #cc0000; }
+      .redaktor .stav[data-state='pending'], .redaktor .stav[data-state='building'] { border-color: #c89000; }
+    </style>
+  </head>
+  <body>
+    <Editor client:only="react" />
+    <form class="redaktor" action="/auth/logout" method="post">
+      <span title={user?.email}>{user?.name}</span>
+      <span class="stav" aria-live="polite"></span>
+      <a href="/" target="_blank">Web</a>
+      <button type="submit">Odhlásit se</button>
+    </form>
+    <script>
+      const el = document.querySelector<HTMLElement>('.redaktor .stav')!;
+      const time = (iso?: string) => (iso ? new Date(iso).toLocaleTimeString('cs-CZ', { hour: '2-digit', minute: '2-digit' }) : '');
+      async function refresh() {
+        try {
+          const res = await fetch('/api/redakce/status');
+          if (!res.ok) return;
+          const s = await res.json();
+          el.dataset.state = s.state;
+          el.title = s.message ?? '';
+          el.textContent =
+            s.state === 'local' ? 'Ukládá se jen do souborů'
+            : s.state === 'pending' || s.state === 'building' ? 'Zveřejňuji…'
+            : s.state === 'error' ? 'Zveřejnění selhalo'
+            : s.publishedAt ? `Web aktuální (${time(s.publishedAt)})` : '';
+        } catch {}
+      }
+      refresh();
+      setInterval(refresh, 4000);
+    </script>
+  </body>
+</html>

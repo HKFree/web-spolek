@@ -1,11 +1,9 @@
-# Redakce pro dev nasazení: Node server s Keystaticem + publikace statického webu.
-# Sestavuje se z kořene repozitáře přes compose.yaml.
+# Redakce pro dev nasazení (compose.yaml).
 FROM docker.io/library/node:24-alpine
 RUN apk add --no-cache git openssh-client \
  && mkdir -p /app /srv/repo /srv/www \
  && chown node:node /app /srv/repo /srv/www
-# Vše rovnou pod uživatelem node. Rekurzivní chown by na overlay filesystému
-# kopíroval celé node_modules do nové vrstvy (minuty na pomalém disku).
+# Bez rekurzivního chown, na overlayfs by kopíroval celé node_modules.
 USER node
 WORKDIR /app
 COPY --chown=node:node package.json package-lock.json ./

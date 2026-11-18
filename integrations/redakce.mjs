@@ -1,7 +1,6 @@
 import react from '@astrojs/react';
 
-// Redakce (Keystatic) a přihlášení. Routy se přidávají do vývojového serveru
-// (npm run dev) a do serverového buildu (REDAKCE=server). Běžný build zůstává statický.
+// Routy redakce jen pro npm run dev a REDAKCE=server.
 export default function redakce({ server = false } = {}) {
   return {
     name: 'hkfree-redakce',

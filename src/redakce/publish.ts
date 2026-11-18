@@ -1,8 +1,6 @@
 import type { Redaktor } from './auth';
 
-// Publikaci (commit, build, zveřejnění, push) obstarává deploy/redakce/start.mjs,
-// který se zaregistruje do globalThis. Ve vývojovém serveru publikace neběží
-// a změny zůstávají jen v souborech.
+// Publikaci obstarává deploy/redakce/start.mjs přes globalThis; v npm run dev neběží.
 
 export type PublishStatus = {
   state: 'local' | 'idle' | 'pending' | 'building' | 'error';

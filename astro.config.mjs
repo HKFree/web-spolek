@@ -5,9 +5,9 @@ import node from '@astrojs/node';
 import redakce from './integrations/redakce.mjs';
 import gallery from './src/lib/gallery-plugin.mjs';
 
-// REDAKCE=server sestaví Node server s redakcí (viz deploy/). Bez toho je výstup čistě statický.
+// REDAKCE=server: Node server s redakcí (deploy/redakce), jinak čistá statika.
 const server = process.env.REDAKCE === 'server';
-// Veřejná doména dev nasazení; Astro pak věří X-Forwarded-* hlavičkám od nginx.
+// Doména za HTTPS proxy; Astro pak věří X-Forwarded-*.
 const domain = process.env.PUBLIC_DOMAIN;
 
 export default defineConfig({
@@ -18,7 +18,6 @@ export default defineConfig({
   markdown: { processor: satteri({ hastPlugins: [gallery] }) },
   ...(server && {
     adapter: node({ mode: 'standalone', bodySizeLimit: 32 * 1024 * 1024 }),
-    // Redakce má vlastní relace (src/redakce/auth.ts), Astro sessions nepotřebuje.
     session: false,
     security: {
       allowedDomains: [{ hostname: 'localhost' }, { hostname: '127.0.0.1' }, ...(domain ? [{ hostname: domain }] : [])],

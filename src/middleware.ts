@@ -1,7 +1,7 @@
 import { defineMiddleware } from 'astro:middleware';
 import { authMode, currentUser, isEditorPath } from './redakce/auth';
 
-// Chrání redakci (/keystatic) a její API. Statické stránky prochází beze změny.
+// Chrání redakci a její API, ostatní stránky jen propouští.
 export const onRequest = defineMiddleware(async (context, next) => {
   let path: string;
   try {

@@ -6,8 +6,7 @@ const slugPattern = { regex: /^[a-z0-9-]+$/, message: 'Jen malá písmena bez di
 const imagesOf = (dir: string) => ({ directory: dir, publicPath: './' });
 const aktualitaImages = imagesOf('src/content/aktuality');
 
-// Keystatic by soubor při uložení přejmenoval podle názvu pole (image.jpg).
-// Ponecháme původní název, ať se nemění adresy ani existující soubory.
+// Keystatic by soubor přejmenoval podle pole (image.jpg); necháme původní název.
 function keepFilename<F extends { serialize: (value: any, args: any) => any }>(field: F): F {
   return { ...field, serialize: (value, args) => field.serialize(value, { ...args, suggestedFilenamePrefix: undefined }) };
 }

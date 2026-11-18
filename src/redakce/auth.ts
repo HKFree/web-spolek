@@ -1,13 +1,8 @@
 import { createHash, randomBytes, timingSafeEqual } from 'node:crypto';
 import type { AstroCookies } from 'astro';
 
-// Přihlášení do redakce. Režim určuje proměnná AUTH_MODE:
-//   dev      stačí jméno a e-mail, nic se neověřuje (výchozí v npm run dev;
-//            na serveru jen výslovně a jen tam, kam se nedostane nikdo cizí)
-//   password jméno, e-mail a sdílené heslo ADMIN_PASSWORD
-//   oidc     přihlášení hkfree účtem (zatím nedodělané, redakce je zavřená)
-// Bez platného nastavení je redakce zavřená. Ve všech režimech vzniká stejná relace
-// a jméno s e-mailem se použijí jako autor commitu.
+// AUTH_MODE: dev = jméno a e-mail (výchozí v npm run dev), password = navíc ADMIN_PASSWORD,
+// oidc = hkfree účty (zatím chybí). Jinak je redakce zavřená. Jméno a e-mail = autor commitu.
 
 export type Redaktor = { name: string; email: string };
 type Session = Redaktor & { expires: number };

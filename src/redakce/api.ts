@@ -5,8 +5,7 @@ import { notifyChange } from './publish';
 
 export const prerender = false;
 
-// Keystatic v lokálním režimu zapisuje přímo do pracovního adresáře (process.cwd()).
-// Přístup hlídá src/middleware.ts.
+// Keystatic zapisuje do process.cwd(), přístup hlídá middleware.
 const handler = makeGenericAPIRouteHandler({ config });
 
 export const ALL: APIRoute = async ({ request, locals }) => {

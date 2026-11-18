@@ -1,5 +1,4 @@
-# Dev nasazení s redakcí (Keystatic). Nastavení v .env, viz .env.example a README.
-# Produkční statický web bez redakce dál staví Containerfile v kořeni.
+# Dev nasazení s redakcí, viz README.
 services:
   redakce:
     build:
@@ -9,7 +8,7 @@ services:
         PUBLIC_DOMAIN: ${PUBLIC_DOMAIN:-}
     restart: unless-stopped
     healthcheck:
-      # zdravá, jakmile je zveřejněný první build webu
+      # zdravá po prvním zveřejnění
       test: ['CMD', 'test', '-e', '/srv/www/current/index.html']
       interval: 5s
       timeout: 3s
@@ -25,7 +24,7 @@ services:
     volumes:
       - repo:/srv/repo
       - www:/srv/www
-      # Deploy klíč pro push na GitHub (viz README):
+      # Deploy klíč pro push:
       # - ./deploy-key:/run/secrets/deploy-key:ro
 
   web:

@@ -29,6 +29,5 @@ export const NAV = [
   { href: '/kontakt/', label: 'Kontakt' },
 ];
 
-// Dokumenty spravuje redakce, PDF leží v public/dokumenty/
 export const DOKUMENTY = dokumentyData.dokumenty.map((d) => ({ href: d.file, label: d.label }));
 export const STANOVY = DOKUMENTY.find((d) => /stanov/i.test(d.label)) ?? DOKUMENTY[0];

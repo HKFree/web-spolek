@@ -15,7 +15,7 @@ npm run build    # výstup do dist/, vždy ověř před commitem
 - `src/content/aktuality/nazev.md` (starší `RRRR-MM-DD-nazev.md`): jedna aktualita = jeden soubor, obrázky ve složce se stejným názvem. Schéma je v `src/content.config.ts`.
 - `src/content/akce/`, `src/content/projekty/`: karty na úvodu (YAML + fotky ve složce se stejným názvem).
 - `keystatic.config.ts`: formuláře redakce (Keystatic na `/keystatic`). Při změně schématu uprav i `src/content.config.ts`.
-- `src/redakce/`, `integrations/redakce.mjs`, `src/middleware.ts`: stránky redakce a přihlášení (`AUTH_MODE`: dev / password / oidc zatím chybí).
+- `src/redakce/`, `integrations/redakce.mjs`, `src/middleware.ts`: stránky redakce a přihlášení (`AUTH_MODE`: dev bez hesla / password / oidc zatím chybí).
 - `compose.yaml`, `deploy/redakce/`: dev nasazení s redakcí (`REDAKCE=server` build, publikace commit → build → přepnutí → push).
 - `src/pages/`: stránky (úvod, aktuality, podporujeme, dílna, kontakt, 404, RSS).
 - `src/consts.ts`: kontakty, menu.

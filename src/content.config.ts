@@ -2,8 +2,6 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
-// Obsah spravuje redakce (Keystatic, viz keystatic.config.ts); jde upravovat i ručně.
-
 // Jedna aktualita = jeden soubor src/content/aktuality/nazev.md (starší mají v názvu i datum).
 // Obrázky patří do složky se stejným názvem vedle souboru.
 const aktuality = defineCollection({

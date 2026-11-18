@@ -1,9 +1,5 @@
-// Spouští redakci na serveru (dev nasazení, viz compose.yaml a README).
-//
-// 1. Připraví git repozitář s obsahem v REPO_DIR (klon GIT_REMOTE, jinak kopie zdrojáků z image).
-// 2. Sestaví statický web a zveřejní ho do WWW_DIR/current (atomické přepnutí symlinku).
-// 3. Po každém uložení v redakci: commit (autor = redaktor), build, zveřejnění, případně push.
-// 4. Spustí Node server redakce (dist/server/entry.mjs) s pracovním adresářem REPO_DIR.
+// Dev nasazení redakce: připraví git repozitář s obsahem, po každém uložení
+// commit → build → přepnutí WWW_DIR/current → push, a spustí Node server redakce.
 import { spawn } from 'node:child_process';
 import { existsSync } from 'node:fs';
 import fs from 'node:fs/promises';
@@ -40,7 +36,7 @@ async function prepareRepo() {
       try {
         await run('git', ['clone', '--branch', GIT_BRANCH, GIT_REMOTE, REPO_DIR], { cwd: '/' });
       } catch {
-        // Větev zatím na GitHubu není: vyjde z výchozí větve a vznikne prvním pushem.
+        // Větev na GitHubu zatím není, vznikne prvním pushem.
         await fs.rm(REPO_DIR, { recursive: true, force: true });
         await run('git', ['clone', GIT_REMOTE, REPO_DIR], { cwd: '/' });
         await git('checkout', '-q', '-b', GIT_BRANCH);
@@ -58,7 +54,7 @@ async function prepareRepo() {
   }
   await git('config', 'user.name', process.env.GIT_COMMITTER_NAME ?? 'hkfree redakce');
   await git('config', 'user.email', process.env.GIT_COMMITTER_EMAIL ?? 'redakce@hkfree.org');
-  // Závislosti bere statický build z image (symlink, který git nesmí vidět).
+  // Závislosti z image; symlink nesmí do gitu.
   const modules = path.join(REPO_DIR, 'node_modules');
   if (!existsSync(modules)) await fs.symlink(path.join(APP_DIR, 'node_modules'), modules);
   const exclude = path.join(REPO_DIR, '.git/info/exclude');
@@ -75,7 +71,7 @@ async function build() {
   const name = new Date().toISOString().replace(/[:.]/g, '-');
   await fs.mkdir(releases, { recursive: true });
   await fs.cp(path.join(REPO_DIR, 'dist'), path.join(releases, name), { recursive: true });
-  // Relativní symlink, ať funguje i v kontejneru s nginx, který má volume jinde.
+  // Relativní, nginx má volume připojené jinde.
   const tmp = path.join(WWW_DIR, `.current-${name}`);
   await fs.symlink(path.join('releases', name), tmp);
   await fs.rename(tmp, path.join(WWW_DIR, 'current'));
@@ -164,9 +160,12 @@ globalThis.__hkfreeRedakce = {
   status: () => ({ ...status }),
 };
 
-// Node jako PID 1 v kontejneru nemá výchozí obsluhu signálů. Neuložené změny
-// v repozitáři se commitnou při dalším startu.
+// Node jako PID 1 nemá výchozí obsluhu signálů.
 for (const signal of ['SIGTERM', 'SIGINT']) process.on(signal, () => process.exit(0));
+
+if (process.env.AUTH_MODE === 'dev') {
+  console.warn('[redakce] POZOR: AUTH_MODE=dev, do redakce se dostane každý bez hesla. Jen pro uzavřenou síť.');
+}
 
 await prepareRepo();
 log('úvodní build');

@@ -5,69 +5,53 @@ Web spolku hkfree.org z.s. Je to statický web v [Astro](https://astro.build) ve
 
 ## Redakce (Keystatic)
 
-Obsah webu jde upravovat v prohlížeči přes [Keystatic](https://keystatic.com) na `/keystatic`.
+Obsah jde upravovat v prohlížeči přes [Keystatic](https://keystatic.com) na `/keystatic`: aktuality, akce,
+projekty, podporované organizace a dokumenty. Víc obrázků pod sebou bez textu se zobrazí jako galerie.
+Běžný build (`npm run build`, `Containerfile`) redakci neobsahuje.
 
-- **Aktuality:** název, datum, autor, krátký popis, titulní obrázek, akce, odkaz na Facebook, koncept a text.
-  Víc obrázků vložených pod sebe bez textu mezi nimi se zobrazí jako galerie.
-- **Akce** a **Projekty:** karty na úvodní stránce (fotka, popis, pořadí). Aktualita se ke kartě akce
-  přiřadí polem „Patří k akci“, projekt odkazuje na vybranou aktualitu.
-- **Podporujeme:** oblasti a organizace na stránce `/podporujeme/` a na úvodu.
-- **Dokumenty:** seznam PDF (nahrávají se do `public/dokumenty/`). Pořadí měníš přetažením.
+**Lokálně:** `npm run dev`, pak http://localhost:4321/keystatic. Stačí jméno a e-mail, změny se ukládají
+do souborů v repozitáři a commituješ je sám.
 
-Běžný build (`npm run build`, `Containerfile`) redakci neobsahuje, výsledek je dál čistě statický.
-
-### Lokálně
-
-`npm run dev` a otevři http://localhost:4321/keystatic. Stačí vyplnit jméno a e-mail, nic se neověřuje.
-Redakce ukládá přímo do souborů v repozitáři, změny pak commitni sám.
-
-### Dev nasazení (docker compose)
-
-Pro testování s dalšími lidmi na serveru. Spustí dva kontejnery:
-
-- `redakce`: Node server s Keystaticem. Obsah drží v git repozitáři ve volume `repo`. Po každém uložení
-  (s pauzou 3 s pro další změny) udělá commit s redaktorem jako autorem, sestaví web
-  (asi 10 s) a atomicky ho přepne ve volume `www`. Volitelně pushne na GitHub.
-- `web`: nginx, servíruje statiku z `www` a `/keystatic`, `/api/keystatic`, `/auth/` předává redakci.
+### Dev nasazení
 
 ```sh
-cp .env.example .env        # nastav aspoň ADMIN_PASSWORD
-docker compose up -d --build
-docker compose logs -f redakce
+cp .env.example .env    # nastav ADMIN_PASSWORD
+docker compose build --progress=plain
+docker compose up -d
 ```
 
-Web pak běží na `http://server:8080` (`WEB_PORT`), redakce na `/keystatic`. Přihlašuje se jménem, e-mailem
-a sdíleným heslem `ADMIN_PASSWORD` (`AUTH_MODE=password`). Bez hesla zůstane redakce zavřená.
-Za HTTPS proxy (Apache apod.) nastav `PUBLIC_DOMAIN` na veřejnou doménu a předávej `X-Forwarded-Proto`.
-`PUBLIC_DOMAIN` se použije při buildu, po změně spusť znovu `docker compose up -d --build`.
+- `redakce` (Node + Keystatic) drží obsah v git repozitáři ve volume `repo`. Po uložení commitne
+  (autor = redaktor), sestaví web, přepne ho ve volume `www` a případně pushne na GitHub.
+- `web` (nginx) servíruje statiku a redakci proxuje.
 
-V liště vlevo dole redakce ukazuje stav: „Zveřejňuji…“, „Web aktuální (čas)“, nebo „Zveřejnění selhalo“
-(podrobnosti v tooltipu a v `docker compose logs redakce`). Když build selže, na webu zůstává poslední funkční verze.
+První build trvá na pomalém serveru několik minut, nepřerušuj ho. Stav zveřejnění je vidět v liště redakce,
+podrobnosti v `docker compose logs redakce`. Když build selže, na webu zůstane poslední verze.
 
-**Záloha na GitHub:** bez `GIT_REMOTE` se repozitář založí ze zdrojáků v image a historie zůstává jen ve volume.
-Pro zálohu nastav `GIT_REMOTE=git@github.com:HKFree/web-spolek.git`, větev `GIT_BRANCH` (výchozí `redakce-dev`;
-když na GitHubu není, založí se prvním pushem), `GIT_PUSH=true` a deploy klíč s právem zápisu:
+**Přihlášení** (`AUTH_MODE`): `password` = jméno, e-mail a `ADMIN_PASSWORD`; `dev` = bez hesla, jen pro
+uzavřenou síť. Bez nastavení je redakce zavřená.
+
+**Za Apache s HTTPS:** `WEB_PORT=127.0.0.1:8080`, `PUBLIC_DOMAIN=<doména>` (bez něj redakce vrací 403)
+a VirtualHost podle [`deploy/redakce/apache2.conf`](deploy/redakce/apache2.conf). `PUBLIC_DOMAIN` se použije
+při buildu, po změně znovu `docker compose up -d --build`.
+
+**Záloha na GitHub:** bez `GIT_REMOTE` zůstává historie jen ve volume. Jinak nastav `GIT_REMOTE`,
+`GIT_PUSH=true` a deploy klíč s právem zápisu (větev `GIT_BRANCH` se případně založí):
 
 ```sh
 ssh-keygen -t ed25519 -f deploy-key -N '' -C 'redakce web-spolek'
-# deploy-key.pub přidej v GitHubu: Settings → Deploy keys → Allow write access
+# deploy-key.pub: GitHub → Settings → Deploy keys → Allow write access
 ```
 
-V `compose.yaml` odkomentuj připojení `./deploy-key` a v `.env` nastav
-`GIT_SSH_COMMAND=ssh -i /run/secrets/deploy-key -o StrictHostKeyChecking=accept-new`.
-Před pushem redakce udělá `git pull --rebase`, takže změny z GitHubu (třeba úpravy kódu webu) se dostanou
-do dalšího buildu. Změny redakce samotné (`keystatic.config.ts`, `src/redakce/`) se projeví až po
-`docker compose up -d --build`.
+V `compose.yaml` odkomentuj `./deploy-key` a v `.env` nastav `GIT_SSH_COMMAND`. Před pushem se dělá
+`git pull --rebase`, takže změny webu z GitHubu se dostanou do dalšího buildu. Změny redakce samotné
+(`keystatic.config.ts`, `src/redakce/`) vyžadují `docker compose up -d --build`.
 
-Volume `repo` nemaž (`docker compose down -v`), dokud změny nejsou na GitHubu. Relace jsou jen v paměti,
-po restartu se redaktoři přihlásí znovu.
+Volume `repo` nemaž, dokud změny nejsou na GitHubu. Po restartu se redaktoři přihlásí znovu.
 
-### Přihlášení přes hkfree účet (OIDC)
+### OIDC (hkfree účty)
 
-Zatím není hotové. `AUTH_MODE=oidc` redakci zavře. Až budou údaje, doplní se `/auth/login` a
-`/auth/callback` v `src/redakce/` (jako u [web-druzstvo](https://github.com/HKFree/web-druzstvo)).
-Po přihlášení se zavolá stejné `login()` ze `src/redakce/auth.ts`, takže relace, autor commitu ani
-zbytek redakce se nemění.
+Zatím chybí, `AUTH_MODE=oidc` redakci zavře. Doplní se `/auth/login` a `/auth/callback` v `src/redakce/`
+(viz [web-druzstvo](https://github.com/HKFree/web-druzstvo)), které zavolají stávající `login()`.
 
 ## Ruční úpravy
 
@@ -91,10 +75,9 @@ Zveme vás na **bruslení zdarma**…
 ![Plakát](./brusleni-2027/plakat.jpg)
 ```
 
-- Adresa článku bude `/aktuality/nazev/`. Starší články mají v názvu souboru i datum (`2019-03-21-brusle-nazout.md`),
-  to se z adresy vynechá. Když by dva články měly stejnou adresu, build skončí chybou.
+- Adresa článku bude `/aktuality/nazev/` (datum v názvu starších souborů se vynechá). Duplicitní adresa shodí build.
 - Obrázky dej do složky se stejným názvem jako soubor. Astro je při buildu samo zmenší a převede na WebP.
-- Odstavec složený jen z obrázků (aspoň dvou, každý na vlastním řádku) se zobrazí jako galerie.
+- Odstavec jen z obrázků (aspoň dvou) se zobrazí jako galerie.
 - `draft: true` skryje článek v produkci (v dev serveru je vidět).
 - Nepovinné `description:` přepíše automatický úryvek ve výpisu.
 - `facebook: "https://www.facebook.com/hkfree/posts/…"` připojí odkaz na příspěvek na FB.
@@ -147,6 +130,6 @@ se přesměrují přes 301 podle `src/pages/nginx-redirects.conf.ts`.
 | dokumenty | `src/data/dokumenty.json`, PDF v `public/dokumenty/` |
 | kontakty, IČ, účet, menu | `src/consts.ts` |
 | fotky v hero | `src/data/hero.ts`, `src/assets/hero/` |
-| redakce | `keystatic.config.ts` (formuláře), `src/redakce/` (stránky a přihlášení), `integrations/redakce.mjs` |
-| dev nasazení | `compose.yaml`, `deploy/redakce/` (image, start a publikace, nginx), `.env.example` |
+| redakce | `keystatic.config.ts`, `src/redakce/`, `integrations/redakce.mjs` |
+| dev nasazení | `compose.yaml`, `deploy/redakce/`, `.env.example` |
 | design | `src/styles/druzstvo.css` (základ z družstva), `src/styles/spolek.css` (vlastní papírový vzhled spolku) |

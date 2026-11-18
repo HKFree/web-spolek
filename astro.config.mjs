@@ -18,6 +18,8 @@ export default defineConfig({
   markdown: { processor: satteri({ hastPlugins: [gallery] }) },
   ...(server && {
     adapter: node({ mode: 'standalone', bodySizeLimit: 32 * 1024 * 1024 }),
+    // Redakce má vlastní relace (src/redakce/auth.ts), Astro sessions nepotřebuje.
+    session: false,
     security: {
       allowedDomains: [{ hostname: 'localhost' }, { hostname: '127.0.0.1' }, ...(domain ? [{ hostname: domain }] : [])],
     },

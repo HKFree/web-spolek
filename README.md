@@ -36,11 +36,21 @@ docker compose up -d --build
 docker compose logs -f redakce
 ```
 
+První build trvá na pomalejším serveru několik minut (zmenšování obrázků) a chvíli nic nevypisuje.
+Nepřerušuj ho; průběh ukáže `docker compose build --progress=plain`.
+
 Web pak běží na `http://server:8080` (`WEB_PORT`), redakce na `/keystatic`. Přihlašuje se jménem, e-mailem
 a sdíleným heslem `ADMIN_PASSWORD` (`AUTH_MODE=password`). Bez hesla zůstane redakce zavřená.
 `AUTH_MODE=dev` přihlašuje jen jménem a e-mailem bez hesla, hodí se jen tam, kam se nedostane nikdo cizí.
-Za HTTPS proxy (Apache apod.) nastav `PUBLIC_DOMAIN` na veřejnou doménu a předávej `X-Forwarded-Proto`.
-`PUBLIC_DOMAIN` se použije při buildu, po změně spusť znovu `docker compose up -d --build`.
+**Za Apache s HTTPS** (jako web-družstvo na stejném serveru):
+
+- v `.env` nastav `WEB_PORT=127.0.0.1:8080` (nginx pak poslouchá jen lokálně; musí to být IP, ne `localhost`)
+  a `PUBLIC_DOMAIN` na veřejnou doménu bez `https://`,
+- VirtualHost podle vzoru [`deploy/redakce/apache2.conf`](deploy/redakce/apache2.conf) (`ProxyPreserveHost On`,
+  `X-Forwarded-Proto https`).
+
+Bez `PUBLIC_DOMAIN` Astro nevěří hlavičkám od proxy, myslí si, že běží na `http://`, a redakce odmítne
+přihlášení i ukládání (403). `PUBLIC_DOMAIN` se použije při buildu, po změně spusť znovu `docker compose up -d --build`.
 
 V liště vlevo dole redakce ukazuje stav: „Zveřejňuji…“, „Web aktuální (čas)“, nebo „Zveřejnění selhalo“
 (podrobnosti v tooltipu a v `docker compose logs redakce`). Když build selže, na webu zůstává poslední funkční verze.

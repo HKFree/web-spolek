@@ -6,7 +6,7 @@ Web spolku hkfree.org z.s. Je to statický web v [Astro](https://astro.build) ve
 ## Redakce (Keystatic)
 
 Obsah jde upravovat v prohlížeči přes [Keystatic](https://keystatic.com) na `/keystatic`: aktuality, akce,
-projekty, podporované organizace a dokumenty. Víc obrázků pod sebou bez textu se zobrazí jako galerie.
+projekty, dílna, podporované organizace a dokumenty. Víc obrázků pod sebou bez textu se zobrazí jako galerie.
 Běžný build (`npm run build`, `Containerfile`) redakci neobsahuje.
 
 **Lokálně:** `npm run dev`, pak http://localhost:4321/keystatic. Stačí jméno a e-mail, změny se ukládají
@@ -126,6 +126,7 @@ se přesměrují přes 301 podle `src/pages/nginx-redirects.conf.ts`.
 | texty úvodní stránky | `src/pages/index.astro` |
 | akce (ples, bruslení, …) | `src/content/akce/*.yaml` (fotky ve složce se stejným názvem) |
 | projekty a bastlení | `src/content/projekty/*.yaml` |
+| dílna a coworking (stránka i sekce na úvodu) | `src/content/dilna.md` |
 | podporované organizace | `src/data/podporujeme.json` |
 | dokumenty | `src/data/dokumenty.json`, PDF v `public/dokumenty/` |
 | kontakty, IČ, účet, menu | `src/consts.ts` |

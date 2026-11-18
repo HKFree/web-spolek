@@ -38,6 +38,7 @@ docker compose logs -f redakce
 
 Web pak běží na `http://server:8080` (`WEB_PORT`), redakce na `/keystatic`. Přihlašuje se jménem, e-mailem
 a sdíleným heslem `ADMIN_PASSWORD` (`AUTH_MODE=password`). Bez hesla zůstane redakce zavřená.
+`AUTH_MODE=dev` přihlašuje jen jménem a e-mailem bez hesla, hodí se jen tam, kam se nedostane nikdo cizí.
 Za HTTPS proxy (Apache apod.) nastav `PUBLIC_DOMAIN` na veřejnou doménu a předávej `X-Forwarded-Proto`.
 `PUBLIC_DOMAIN` se použije při buildu, po změně spusť znovu `docker compose up -d --build`.
 

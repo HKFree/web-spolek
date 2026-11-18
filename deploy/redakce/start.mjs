@@ -168,6 +168,10 @@ globalThis.__hkfreeRedakce = {
 // v repozitáři se commitnou při dalším startu.
 for (const signal of ['SIGTERM', 'SIGINT']) process.on(signal, () => process.exit(0));
 
+if (process.env.AUTH_MODE === 'dev') {
+  console.warn('[redakce] POZOR: AUTH_MODE=dev, do redakce se dostane každý bez hesla. Jen pro uzavřenou síť.');
+}
+
 await prepareRepo();
 log('úvodní build');
 await publish();

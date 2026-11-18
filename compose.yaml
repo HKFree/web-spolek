@@ -17,7 +17,7 @@ services:
       start_period: 180s
     environment:
       AUTH_MODE: ${AUTH_MODE:-password}
-      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?Nastav ADMIN_PASSWORD v .env}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
       GIT_REMOTE: ${GIT_REMOTE:-}
       GIT_BRANCH: ${GIT_BRANCH:-redakce-dev}
       GIT_PUSH: ${GIT_PUSH:-false}

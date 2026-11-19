@@ -54,16 +54,4 @@ const projekty = defineCollection({
     }),
 });
 
-// Stránka /dilna/ a sekce dílny na úvodu, src/content/dilna.md
-const dilna = defineCollection({
-  loader: glob({ base: './src/content', pattern: 'dilna.md' }),
-  schema: z.object({
-    status: z.string(),
-    title: z.string(),
-    intro: z.string(),
-    items: z.array(z.object({ name: z.string(), text: z.string() })),
-    footer: z.string(),
-  }),
-});
-
-export const collections = { aktuality, akce, projekty, dilna };
+export const collections = { aktuality, akce, projekty };

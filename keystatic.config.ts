@@ -19,7 +19,7 @@ export default config({
     brand: { name: 'hkfree.org z.s. · redakce' },
     navigation: {
       Obsah: ['aktuality', 'akce', 'projekty'],
-      Stránky: ['dilna', 'podporujeme', 'dokumenty'],
+      Stránky: ['podporujeme', 'dokumenty'],
     },
   },
   collections: {
@@ -107,27 +107,6 @@ export default config({
   },
 
   singletons: {
-    dilna: singleton({
-      label: 'Dílna a coworking',
-      path: 'src/content/dilna',
-      format: { contentField: 'content' },
-      entryLayout: 'content',
-      schema: {
-        status: fields.text({ label: 'Stav', description: 'Štítek na stránce dílny, např. „v přípravě“.', validation: { isRequired: true, length: { max: 20 } } }),
-        title: fields.text({ label: 'Nadpis na úvodu', validation: { isRequired: true, length: { max: 60 } } }),
-        intro: fields.text({ label: 'Text na úvodu', multiline: true, validation: { isRequired: true, length: { max: 400 } } }),
-        items: fields.array(
-          fields.object({
-            name: fields.text({ label: 'Název', validation: { isRequired: true, length: { max: 20 } } }),
-            text: fields.text({ label: 'Popis', validation: { isRequired: true, length: { max: 70 } } }),
-          }),
-          { label: 'Co chystáme', description: 'Rámeček na úvodu i na stránce dílny.', itemLabel: (props) => props.fields.name.value || 'Nová položka' },
-        ),
-        footer: fields.text({ label: 'Patička rámečku', validation: { length: { max: 70 } } }),
-        content: fields.markdoc({ label: 'Text stránky dílny', extension: 'md' }),
-      },
-    }),
-
     podporujeme: singleton({
       label: 'Podporujeme',
       path: 'src/data/podporujeme',

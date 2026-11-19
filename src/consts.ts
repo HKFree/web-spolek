@@ -5,7 +5,7 @@ export const SPOLEK = {
   fullName: 'hkfree.org, zapsaný spolek',
   ico: '266 59 573',
   datovka: 'pdt6qbv',
-  ucet: '2200229191 / 2010',
+  ucet: '2501830036 / 2010',
   adresa: 'Heyrovského 1178/6, 500 03 Hradec Králové',
   fakturace: 'fakturace@hkfree.org',
   // výkonný výbor spolku

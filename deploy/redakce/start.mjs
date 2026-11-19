@@ -179,7 +179,12 @@ if (process.env.AUTH_MODE === 'dev') {
   console.warn('[redakce] POZOR: AUTH_MODE=dev, do redakce se dostane každý bez hesla. Jen pro uzavřenou síť.');
 }
 
-await prepareRepo();
+try {
+  await prepareRepo();
+} catch (error) {
+  console.error(`[redakce] nepodařilo se připravit repozitář (zkontroluj GIT_REMOTE a deploy klíč): ${error.message}`);
+  process.exit(1);
+}
 await commit([]);
 await syncCode();
 log('úvodní build');

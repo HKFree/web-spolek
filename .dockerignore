@@ -7,3 +7,5 @@ inspo
 .git
 .env
 .env.*
+deploy-key
+deploy-key.pub

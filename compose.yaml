@@ -24,7 +24,7 @@ services:
     volumes:
       - repo:/srv/repo
       - www:/srv/www
-      # Deploy klíč pro push:
+      # Deploy klíč pro push (chown 1000:1000, chmod 600):
       # - ./deploy-key:/run/secrets/deploy-key:ro
 
   web:

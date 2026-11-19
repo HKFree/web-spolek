@@ -48,8 +48,17 @@ chown 1000:1000 deploy-key && chmod 600 deploy-key
 # deploy-key.pub: GitHub → Settings → Deploy keys → Add, Allow write access
 ```
 
-V `.env` nastav `GIT_REMOTE=git@github.com:HKFree/web-spolek.git` a `GIT_PUSH=true`, v `compose.yaml`
-odkomentuj `./deploy-key`. Na prázdném volume se repozitář naklonuje z `GIT_BRANCH`, takže záloha jde obnovit.
+V `.env` nastav `GIT_REMOTE=git@github.com:HKFree/web-spolek.git` a `GIT_PUSH=true` a klíč připoj
+v `compose.override.yaml` (není v gitu, compose ho načte sám):
+
+```yaml
+services:
+  redakce:
+    volumes:
+      - ./deploy-key:/run/secrets/deploy-key:ro
+```
+
+Na prázdném volume se repozitář naklonuje z `GIT_BRANCH`, takže záloha jde obnovit.
 
 Volume `repo` nemaž, dokud změny nejsou na GitHubu. Po restartu se redaktoři přihlásí znovu.
 

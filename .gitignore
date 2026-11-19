@@ -20,3 +20,4 @@ npm-debug.log*
 # deploy klíč redakce pro push na GitHub
 deploy-key
 deploy-key.pub
+compose.override.yaml

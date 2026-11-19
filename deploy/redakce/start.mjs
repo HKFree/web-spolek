@@ -1,5 +1,5 @@
-// Dev nasazení redakce: připraví git repozitář s obsahem, po každém uložení
-// commit → build → přepnutí WWW_DIR/current → push, a spustí Node server redakce.
+// Dev nasazení redakce: kód webu bere z image, obsah (MANAGED) drží v git repozitáři ve volume.
+// Po každém uložení commit → build → přepnutí WWW_DIR/current → push, a spustí Node server redakce.
 import { spawn } from 'node:child_process';
 import { existsSync } from 'node:fs';
 import fs from 'node:fs/promises';
@@ -13,9 +13,17 @@ const GIT_BRANCH = process.env.GIT_BRANCH ?? 'redakce-dev';
 const GIT_PUSH = process.env.GIT_PUSH === 'true';
 const DEBOUNCE_MS = Number(process.env.PUBLISH_DEBOUNCE_MS ?? 3000);
 const KEEP_RELEASES = 3;
+const DEPLOY_KEY = '/run/secrets/deploy-key';
+
+// Spravuje redakce (musí odpovídat keystatic.config.ts), při startu se nepřepisuje z image.
+const MANAGED = ['src/content/aktuality/', 'src/content/akce/', 'src/content/projekty/', 'src/data/podporujeme.json', 'src/data/dokumenty.json', 'public/dokumenty/'];
+const LOCAL = ['.git/', 'node_modules', 'dist/', '.astro/'];
 
 const log = (...args) => console.log('[redakce]', ...args);
-if (!process.env.GIT_SSH_COMMAND) delete process.env.GIT_SSH_COMMAND;
+if (!process.env.GIT_SSH_COMMAND) {
+  delete process.env.GIT_SSH_COMMAND;
+  if (existsSync(DEPLOY_KEY)) process.env.GIT_SSH_COMMAND = `ssh -i ${DEPLOY_KEY} -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes`;
+}
 
 function run(cmd, args, { cwd = REPO_DIR, env } = {}) {
   return new Promise((resolve, reject) => {
@@ -52,6 +60,10 @@ async function prepareRepo() {
       await git('-c', 'user.name=hkfree redakce', '-c', 'user.email=redakce@hkfree.org', 'commit', '-q', '-m', 'Výchozí obsah');
     }
   }
+  if (GIT_REMOTE) {
+    const remotes = (await git('remote')).split('\n');
+    await git('remote', remotes.includes('origin') ? 'set-url' : 'add', 'origin', GIT_REMOTE);
+  }
   await git('config', 'user.name', process.env.GIT_COMMITTER_NAME ?? 'hkfree redakce');
   await git('config', 'user.email', process.env.GIT_COMMITTER_EMAIL ?? 'redakce@hkfree.org');
   // Závislosti z image; symlink nesmí do gitu.
@@ -61,6 +73,16 @@ async function prepareRepo() {
   await fs.mkdir(path.dirname(exclude), { recursive: true });
   const excluded = existsSync(exclude) ? await fs.readFile(exclude, 'utf8') : '';
   if (!/^\/node_modules$/m.test(excluded)) await fs.appendFile(exclude, '\n/node_modules\n');
+}
+
+/** Kód webu z image; obsah z MANAGED zůstává. Smazané soubory se smažou i tady. */
+async function syncCode() {
+  const excludes = [...MANAGED, ...LOCAL].map((p) => `--exclude=/${p}`);
+  await run('rsync', ['-rlt', '--delete', ...excludes, `${APP_DIR}/`, `${REPO_DIR}/`]);
+  await git('add', '-A');
+  if (!(await git('diff', '--cached', '--name-only'))) return;
+  await git('commit', '-q', '-m', 'Kód webu z image');
+  log('kód webu převzat z image');
 }
 
 async function build() {
@@ -98,18 +120,14 @@ async function commit(authors) {
   return true;
 }
 
-async function sync() {
+/** Záloha na GitHub, jen push. Větev GIT_BRANCH patří redakci, nikdo jiný do ní nepushuje. */
+async function push() {
   if (!GIT_PUSH || !GIT_REMOTE) return;
-  const exists = (await git('ls-remote', '--heads', 'origin', GIT_BRANCH)) !== '';
-  if (exists) {
-    try {
-      await git('pull', '-q', '--rebase', 'origin', GIT_BRANCH);
-    } catch (error) {
-      await git('rebase', '--abort').catch(() => {});
-      throw new Error(`Nepodařilo se sloučit změny z GitHubu: ${error.message}`);
-    }
+  try {
+    await git('push', '-q', 'origin', `HEAD:${GIT_BRANCH}`);
+  } catch (error) {
+    throw new Error(`Push na GitHub selhal (do větve ${GIT_BRANCH} smí pushovat jen redakce): ${error.message}`);
   }
-  await git('push', '-q', 'origin', `HEAD:${GIT_BRANCH}`);
 }
 
 const status = { state: 'idle', message: undefined, publishedAt: undefined };
@@ -126,15 +144,9 @@ async function publish() {
   pendingAuthors = [];
   try {
     await commit(authors);
-    let syncError;
-    try {
-      await sync();
-    } catch (error) {
-      syncError = error;
-    }
     await build();
     status.publishedAt = new Date().toISOString();
-    if (syncError) throw syncError;
+    await push();
     status.state = 'idle';
     status.message = undefined;
   } catch (error) {
@@ -167,7 +179,14 @@ if (process.env.AUTH_MODE === 'dev') {
   console.warn('[redakce] POZOR: AUTH_MODE=dev, do redakce se dostane každý bez hesla. Jen pro uzavřenou síť.');
 }
 
-await prepareRepo();
+try {
+  await prepareRepo();
+} catch (error) {
+  console.error(`[redakce] nepodařilo se připravit repozitář (zkontroluj GIT_REMOTE a deploy klíč): ${error.message}`);
+  process.exit(1);
+}
+await commit([]);
+await syncCode();
 log('úvodní build');
 await publish();
 process.chdir(REPO_DIR);

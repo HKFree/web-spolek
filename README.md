@@ -22,6 +22,7 @@ docker compose up -d
 
 - `redakce` (Node + Keystatic) drží obsah v git repozitáři ve volume `repo`. Po uložení commitne
   (autor = redaktor), sestaví web, přepne ho ve volume `www` a případně pushne na GitHub.
+  Kód webu bere při startu z image, obsah spravovaný redakcí nechává ve volume.
 - `web` (nginx) servíruje statiku a redakci proxuje.
 
 První build trvá na pomalém serveru několik minut, nepřerušuj ho. Stav zveřejnění je vidět v liště redakce,
@@ -34,17 +35,30 @@ uzavřenou síť. Bez nastavení je redakce zavřená.
 a VirtualHost podle [`deploy/redakce/apache2.conf`](deploy/redakce/apache2.conf). `PUBLIC_DOMAIN` se použije
 při buildu, po změně znovu `docker compose up -d --build`.
 
-**Záloha na GitHub:** bez `GIT_REMOTE` zůstává historie jen ve volume. Jinak nastav `GIT_REMOTE`,
-`GIT_PUSH=true` a deploy klíč s právem zápisu (větev `GIT_BRANCH` se případně založí):
+**Změny kódu** (šablony, styly, stránky): `git pull` a `docker compose up -d --build`. Při startu se kód
+převezme z image, obsah spravovaný redakcí (`MANAGED` v `deploy/redakce/start.mjs`) zůstane ve volume.
+Obsah upravený v gitu se do volume nedostane, ten patří redakci.
+
+**Záloha na GitHub:** redakce po každém uložení pushne do větve `GIT_BRANCH`, která patří jen jí
+(nikdo jiný do ní nepushuje, do `main` se obsah dostane přes PR). Bez `GIT_REMOTE` zůstává historie jen ve volume.
 
 ```sh
 ssh-keygen -t ed25519 -f deploy-key -N '' -C 'redakce web-spolek'
-# deploy-key.pub: GitHub → Settings → Deploy keys → Allow write access
+chown 1000:1000 deploy-key && chmod 600 deploy-key
+# deploy-key.pub: GitHub → Settings → Deploy keys → Add, Allow write access
 ```
 
-V `compose.yaml` odkomentuj `./deploy-key` a v `.env` nastav `GIT_SSH_COMMAND`. Před pushem se dělá
-`git pull --rebase`, takže změny webu z GitHubu se dostanou do dalšího buildu. Změny redakce samotné
-(`keystatic.config.ts`, `src/redakce/`) vyžadují `docker compose up -d --build`.
+V `.env` nastav `GIT_REMOTE=git@github.com:HKFree/web-spolek.git` a `GIT_PUSH=true` a klíč připoj
+v `compose.override.yaml` (není v gitu, compose ho načte sám):
+
+```yaml
+services:
+  redakce:
+    volumes:
+      - ./deploy-key:/run/secrets/deploy-key:ro
+```
+
+Na prázdném volume se repozitář naklonuje z `GIT_BRANCH`, takže záloha jde obnovit.
 
 Volume `repo` nemaž, dokud změny nejsou na GitHubu. Po restartu se redaktoři přihlásí znovu.
 

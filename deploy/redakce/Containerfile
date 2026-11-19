@@ -1,6 +1,7 @@
 # Redakce pro dev nasazení (compose.yaml).
 FROM docker.io/library/node:24-alpine
-RUN apk add --no-cache git openssh-client \
+COPY deploy/redakce/github_known_hosts /etc/ssh/ssh_known_hosts
+RUN apk add --no-cache git openssh-client rsync \
  && mkdir -p /app /srv/repo /srv/www \
  && chown node:node /app /srv/repo /srv/www
 # Bez rekurzivního chown, na overlayfs by kopíroval celé node_modules.

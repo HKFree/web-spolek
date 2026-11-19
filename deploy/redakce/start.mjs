@@ -41,14 +41,10 @@ async function prepareRepo() {
   if (!existsSync(path.join(REPO_DIR, '.git'))) {
     if (GIT_REMOTE) {
       log(`klonuji ${GIT_REMOTE} (${GIT_BRANCH})`);
-      try {
-        await run('git', ['clone', '--branch', GIT_BRANCH, GIT_REMOTE, REPO_DIR], { cwd: '/' });
-      } catch {
-        // Větev na GitHubu zatím není, vznikne prvním pushem.
-        await fs.rm(REPO_DIR, { recursive: true, force: true });
-        await run('git', ['clone', GIT_REMOTE, REPO_DIR], { cwd: '/' });
-        await git('checkout', '-q', '-b', GIT_BRANCH);
-      }
+      // Bez větve GIT_BRANCH se vyjde z výchozí větve; vznikne prvním pushem.
+      const exists = (await run('git', ['ls-remote', '--heads', GIT_REMOTE, GIT_BRANCH], { cwd: '/' })) !== '';
+      await run('git', ['clone', ...(exists ? ['--branch', GIT_BRANCH] : []), GIT_REMOTE, REPO_DIR], { cwd: '/' });
+      if (!exists) await git('checkout', '-q', '-b', GIT_BRANCH);
     } else {
       log('GIT_REMOTE není nastavené, zakládám lokální repozitář ze zdrojáků image');
       await fs.cp(APP_DIR, REPO_DIR, {
